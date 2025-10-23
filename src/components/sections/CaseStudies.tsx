@@ -94,12 +94,12 @@ export const CaseStudies = () => {
   const filteredCases = cases.filter((c) => filter === "all" || c.category === filter);
 
   return (
-    <section className="py-32 bg-[hsl(var(--warm-white))]">
+    <section id="case-studies" className="py-32 bg-gray-50">
       <div className="container mx-auto px-8">
-        <h2 className="text-5xl lg:text-7xl font-bold text-[hsl(var(--deep-navy))] text-center mb-6">
-          Studia <span className="text-[hsl(var(--electric-cyan))]">Przypadków</span>
+        <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+          Studia <span className="text-luxury-forest-green">Przypadków</span>
         </h2>
-        <p className="text-xl text-[hsl(var(--near-black))/70] text-center mb-12">
+        <p className="text-xl text-gray-600 text-center mb-12">
           Prawdziwe wdrożenia, mierzalne rezultaty
         </p>
 
@@ -109,8 +109,8 @@ export const CaseStudies = () => {
             onClick={() => setFilter("all")}
             className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
               filter === "all"
-                ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--deep-navy))] text-[hsl(var(--warm-white))]"
-                : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
+                ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+                : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
             }`}
           >
             Wszystkie
@@ -119,8 +119,8 @@ export const CaseStudies = () => {
             onClick={() => setFilter("enterprise")}
             className={`px-8 py-4 border-2 font-bold transition-all duration-300 flex items-center gap-2 ${
               filter === "enterprise"
-                ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--deep-navy))] text-[hsl(var(--warm-white))]"
-                : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
+                ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+                : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
             }`}
           >
             <Factory className="w-5 h-5" />
@@ -130,8 +130,8 @@ export const CaseStudies = () => {
             onClick={() => setFilter("public")}
             className={`px-8 py-4 border-2 font-bold transition-all duration-300 flex items-center gap-2 ${
               filter === "public"
-                ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--deep-navy))] text-[hsl(var(--warm-white))]"
-                : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
+                ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+                : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
             }`}
           >
             <Landmark className="w-5 h-5" />
@@ -147,20 +147,20 @@ export const CaseStudies = () => {
               className="group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${idx * 0.05}s` }}
             >
-              <div className="overflow-hidden border-4 border-[hsl(var(--deep-navy))] mb-4 group-hover:border-[hsl(var(--electric-cyan))] transition-all duration-300">
+              <div className="overflow-hidden border-4 border-luxury-forest-green mb-4 group-hover:border-luxury-forest-green/80 transition-all duration-300 shadow-lg">
                 <img
                   src={caseStudy.image}
                   alt={caseStudy.client}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-[hsl(var(--deep-navy))] mb-2">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 {caseStudy.client}
               </h3>
-              <p className="text-sm text-[hsl(var(--near-black))/60] mb-3 uppercase tracking-wider">
+              <p className="text-sm text-gray-500 mb-3 uppercase tracking-wider">
                 {caseStudy.industry}
               </p>
-              <p className="text-lg text-[hsl(var(--electric-cyan))] font-bold">
+              <p className="text-lg text-luxury-forest-green font-bold">
                 {caseStudy.result}
               </p>
             </div>

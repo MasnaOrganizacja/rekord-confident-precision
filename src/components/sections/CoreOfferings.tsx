@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Database, FileText, TrendingUp, Shield, Building2, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const CoreOfferings = () => {
   const [tilt1, setTilt1] = useState({ x: 0, y: 0 });
   const [tilt2, setTilt2] = useState({ x: 0, y: 0 });
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement>,
@@ -29,7 +31,7 @@ export const CoreOfferings = () => {
   };
 
   return (
-    <section className="py-32 bg-[hsl(var(--deep-navy))]">
+    <section id="products" className="py-32 bg-gray-50">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {/* Rekord.ERP Card */}
@@ -43,12 +45,12 @@ export const CoreOfferings = () => {
               transition: "transform 0.1s ease-out",
             }}
           >
-            <div className="bg-[hsl(var(--warm-white))] border-4 border-[hsl(var(--electric-cyan))] p-12 h-full min-h-[600px] flex flex-col">
+            <div className="bg-white border-4 border-luxury-forest-green p-12 h-full min-h-[600px] flex flex-col shadow-lg">
               <div className="mb-6">
-                <Database className="w-16 h-16 text-[hsl(var(--electric-cyan))]" />
+                <Database className="w-16 h-16 text-luxury-forest-green" />
               </div>
               
-              <h3 className="text-5xl font-bold text-[hsl(var(--deep-navy))] mb-6">
+              <h3 className="text-5xl font-bold text-luxury-forest-green mb-6">
                 Rekord.ERP
               </h3>
               
@@ -59,37 +61,37 @@ export const CoreOfferings = () => {
 
               <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-start gap-4">
-                  <TrendingUp className="w-6 h-6 text-[hsl(var(--electric-cyan))] mt-1 flex-shrink-0" />
+                  <TrendingUp className="w-6 h-6 text-luxury-forest-green mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-lg text-[hsl(var(--deep-navy))]">Finanse i Księgowość</h4>
+                    <h4 className="font-bold text-lg text-gray-900">Finanse i Księgowość</h4>
                     <p className="text-[hsl(var(--near-black))/70]">Pełna kontrola finansowa w czasie rzeczywistym</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <FileText className="w-6 h-6 text-[hsl(var(--electric-cyan))] mt-1 flex-shrink-0" />
+                  <FileText className="w-6 h-6 text-luxury-forest-green mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-lg text-[hsl(var(--deep-navy))]">Logistyka i Magazyn</h4>
+                    <h4 className="font-bold text-lg text-gray-900">Logistyka i Magazyn</h4>
                     <p className="text-[hsl(var(--near-black))/70]">Zarządzanie łańcuchem dostaw i zapasami</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <Database className="w-6 h-6 text-[hsl(var(--electric-cyan))] mt-1 flex-shrink-0" />
+                  <Database className="w-6 h-6 text-luxury-forest-green mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-lg text-[hsl(var(--deep-navy))]">Produkcja i Projekty</h4>
-                    <p className="text-[hsl(var(--near-black))/70]">Planowanie i kontrola procesów produkcyjnych</p>
+                    <h4 className="font-bold text-lg text-gray-900">Produkcja i Projekty</h4>
+                    <p className="text-gray-600">Planowanie i kontrola procesów produkcyjnych</p>
                   </div>
                 </div>
               </div>
 
-              <a 
-                href="#" 
-                className="magnetic-button inline-flex items-center gap-2 text-[hsl(var(--deep-navy))] font-bold text-lg group-hover:gap-4 transition-all duration-300"
+              <button 
+                onClick={() => navigate("/rekord-erp")}
+                className="magnetic-button inline-flex items-center gap-2 text-luxury-forest-green font-bold text-lg group-hover:gap-4 transition-all duration-300"
               >
                 Dowiedz się więcej
                 <ArrowRight className="w-6 h-6" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -104,12 +106,12 @@ export const CoreOfferings = () => {
               transition: "transform 0.1s ease-out",
             }}
           >
-            <div className="bg-[hsl(var(--warm-white))] border-4 border-[hsl(var(--electric-cyan))] p-12 h-full min-h-[600px] flex flex-col">
+            <div className="bg-white border-4 border-luxury-forest-green p-12 h-full min-h-[600px] flex flex-col shadow-lg">
               <div className="mb-6">
-                <Building2 className="w-16 h-16 text-[hsl(var(--electric-cyan))]" />
+                <Building2 className="w-16 h-16 text-luxury-forest-green" />
               </div>
               
-              <h3 className="text-5xl font-bold text-[hsl(var(--deep-navy))] mb-6">
+              <h3 className="text-5xl font-bold text-luxury-forest-green mb-6">
                 RATUSZ
               </h3>
               
@@ -120,37 +122,37 @@ export const CoreOfferings = () => {
 
               <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-start gap-4">
-                  <Shield className="w-6 h-6 text-[hsl(var(--electric-cyan))] mt-1 flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-luxury-forest-green mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-lg text-[hsl(var(--deep-navy))]">Podatki i Opłaty Lokalne</h4>
-                    <p className="text-[hsl(var(--near-black))/70]">Automatyzacja poboru i ewidencji należności</p>
+                    <h4 className="font-bold text-lg text-gray-900">Podatki i Opłaty Lokalne</h4>
+                    <p className="text-gray-600">Automatyzacja poboru i ewidencji należności</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <Users className="w-6 h-6 text-[hsl(var(--electric-cyan))] mt-1 flex-shrink-0" />
+                  <Users className="w-6 h-6 text-luxury-forest-green mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-lg text-[hsl(var(--deep-navy))]">E-urząd i Obsługa Obywatela</h4>
-                    <p className="text-[hsl(var(--near-black))/70]">Platforma cyfrowej komunikacji z mieszkańcami</p>
+                    <h4 className="font-bold text-lg text-gray-900">E-urząd i Obsługa Obywatela</h4>
+                    <p className="text-gray-600">Platforma cyfrowej komunikacji z mieszkańcami</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <TrendingUp className="w-6 h-6 text-[hsl(var(--electric-cyan))] mt-1 flex-shrink-0" />
+                  <TrendingUp className="w-6 h-6 text-luxury-forest-green mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-lg text-[hsl(var(--deep-navy))]">Budżet i Finanse Publiczne</h4>
-                    <p className="text-[hsl(var(--near-black))/70]">Zarządzanie budżetem zgodne z przepisami</p>
+                    <h4 className="font-bold text-lg text-gray-900">Budżet i Finanse Publiczne</h4>
+                    <p className="text-gray-600">Zarządzanie budżetem zgodne z przepisami</p>
                   </div>
                 </div>
               </div>
 
-              <a 
-                href="#" 
-                className="magnetic-button inline-flex items-center gap-2 text-[hsl(var(--deep-navy))] font-bold text-lg group-hover:gap-4 transition-all duration-300"
+              <button 
+                onClick={() => navigate("/ratusz")}
+                className="magnetic-button inline-flex items-center gap-2 text-luxury-forest-green font-bold text-lg group-hover:gap-4 transition-all duration-300"
               >
                 Dowiedz się więcej
                 <ArrowRight className="w-6 h-6" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

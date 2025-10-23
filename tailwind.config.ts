@@ -19,6 +19,12 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Custom brand colors
+        "deep-navy": "hsl(var(--deep-navy))",
+        "electric-cyan": "hsl(var(--electric-cyan))",
+        "warm-white": "hsl(var(--warm-white))",
+        "near-black": "hsl(var(--near-black))",
+        "luxury-forest-green": "hsl(var(--luxury-forest-green))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

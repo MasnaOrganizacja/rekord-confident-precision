@@ -44,7 +44,7 @@ export const OurHistory = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden bg-[hsl(var(--deep-navy))]">
+    <section id="about" ref={sectionRef} className="relative h-screen overflow-hidden bg-[hsl(var(--deep-navy))]">
       <div className="absolute top-12 left-8 z-10">
         <h2 className="text-5xl font-bold text-[hsl(var(--warm-white))] mb-2">
           Nasza <span className="text-[hsl(var(--electric-cyan))]">Historia</span>

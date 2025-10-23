@@ -80,12 +80,12 @@ export const OurTeam = () => {
   ];
 
   return (
-    <section className="py-32 bg-[hsl(var(--deep-navy))]">
+    <section id="team" className="py-32 bg-white">
       <div className="container mx-auto px-8">
-        <h2 className="text-5xl lg:text-7xl font-bold text-[hsl(var(--warm-white))] text-center mb-6">
-          Nasz <span className="text-[hsl(var(--electric-cyan))]">Zespół</span>
+        <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+          Nasz <span className="text-luxury-forest-green">Zespół</span>
         </h2>
-        <p className="text-xl text-[hsl(var(--warm-white))/70] text-center mb-20">
+        <p className="text-xl text-gray-600 text-center mb-20">
           Eksperci, którzy tworzą przyszłość oprogramowania
         </p>
 
@@ -96,17 +96,17 @@ export const OurTeam = () => {
               onClick={() => setSelectedMember(idx)}
               className="group cursor-pointer"
             >
-              <div className="overflow-hidden border-4 border-[hsl(var(--electric-cyan))] mb-4 group-hover:scale-105 transition-all duration-300">
+              <div className="overflow-hidden border-4 border-luxury-forest-green mb-4 group-hover:scale-105 transition-all duration-300 shadow-lg">
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-xl font-bold text-[hsl(var(--warm-white))] mb-1">
+              <h3 className="text-xl font-bold text-gray-900 mb-1">
                 {member.name}
               </h3>
-              <p className="text-[hsl(var(--electric-cyan))]">{member.role}</p>
+              <p className="text-luxury-forest-green">{member.role}</p>
             </div>
           ))}
         </div>
@@ -119,12 +119,12 @@ export const OurTeam = () => {
           onClick={() => setSelectedMember(null)}
         >
           <div
-            className="bg-[hsl(var(--warm-white))] border-4 border-[hsl(var(--electric-cyan))] max-w-2xl w-full p-12 relative animate-scale-in"
+            className="bg-white border-4 border-luxury-forest-green max-w-2xl w-full p-12 relative animate-scale-in shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 w-12 h-12 border-2 border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:bg-[hsl(var(--deep-navy))] hover:text-[hsl(var(--warm-white))] transition-all duration-300 flex items-center justify-center"
+              className="absolute top-4 right-4 w-12 h-12 border-2 border-luxury-forest-green text-luxury-forest-green hover:bg-luxury-forest-green hover:text-white transition-all duration-300 flex items-center justify-center"
             >
               <X className="w-6 h-6" />
             </button>
@@ -132,18 +132,18 @@ export const OurTeam = () => {
               <img
                 src={team[selectedMember].image}
                 alt={team[selectedMember].name}
-                className="w-40 h-40 object-cover border-4 border-[hsl(var(--electric-cyan))]"
+                className="w-40 h-40 object-cover border-4 border-luxury-forest-green"
               />
               <div>
-                <h3 className="text-3xl font-bold text-[hsl(var(--deep-navy))] mb-2">
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">
                   {team[selectedMember].name}
                 </h3>
-                <p className="text-xl text-[hsl(var(--electric-cyan))] font-bold">
+                <p className="text-xl text-luxury-forest-green font-bold">
                   {team[selectedMember].role}
                 </p>
               </div>
             </div>
-            <p className="text-lg text-[hsl(var(--near-black))/80] leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               {team[selectedMember].bio}
             </p>
           </div>

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { SocialProof } from "@/components/sections/SocialProof";
 import { CoreOfferings } from "@/components/sections/CoreOfferings";
@@ -50,6 +51,7 @@ const Index = () => {
 
   return (
     <main className="overflow-x-hidden">
+      <Navbar />
       <Hero />
       <SocialProof />
       <CoreOfferings />
