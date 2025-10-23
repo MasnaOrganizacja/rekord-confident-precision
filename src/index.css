@@ -8,45 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Rekord SI Brand Colors - "Confident Precision" Design System */
-    --deep-navy: 228 61% 10%;
-    --electric-cyan: 187 100% 50%;
-    --warm-white: 40 27% 96%;
-    --near-black: 228 42% 16%;
+    /* Rekord SI Brand Colors - Corporate Identity */
+    --corporate-blue: 210 100% 33%;
+    --signature-green: 85 54% 51%;
+    --pure-white: 0 0% 100%;
+    --dark-gray: 0 0% 20%;
     
-    --background: 40 27% 96%;
-    --foreground: 228 42% 16%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 228 42% 16%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 228 42% 16%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 228 61% 10%;
-    --primary-foreground: 40 27% 96%;
+    --primary: 210 100% 33%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 187 100% 50%;
-    --secondary-foreground: 228 61% 10%;
+    --secondary: 85 54% 51%;
+    --secondary-foreground: 210 100% 33%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 187 100% 50%;
-    --accent-foreground: 228 61% 10%;
+    --accent: 85 54% 51%;
+    --accent-foreground: 210 100% 33%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 228 42% 16%;
+    --border: 0 0% 20%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 187 100% 50%;
+    --ring: 85 54% 51%;
 
     --radius: 0rem;
 
     /* Custom Animation Variables */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-elegant: 0 20px 60px -10px hsl(228 61% 10% / 0.3);
+    --shadow-elegant: 0 20px 60px -10px hsl(210 100% 33% / 0.3);
     
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -59,33 +59,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 228 61% 10%;
-    --foreground: 40 27% 96%;
+    --background: 210 100% 33%;
+    --foreground: 0 0% 100%;
 
-    --card: 228 61% 10%;
-    --card-foreground: 40 27% 96%;
+    --card: 210 100% 33%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 228 61% 10%;
-    --popover-foreground: 40 27% 96%;
+    --popover: 210 100% 33%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 40 27% 96%;
-    --primary-foreground: 228 61% 10%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 210 100% 33%;
 
-    --secondary: 187 100% 50%;
-    --secondary-foreground: 228 61% 10%;
+    --secondary: 85 54% 51%;
+    --secondary-foreground: 210 100% 33%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 187 100% 50%;
-    --accent-foreground: 228 61% 10%;
+    --accent: 85 54% 51%;
+    --accent-foreground: 210 100% 33%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 27% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 187 100% 50%;
+    --border: 85 54% 51%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 187 100% 50%;
+    --ring: 85 54% 51%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
