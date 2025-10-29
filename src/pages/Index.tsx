@@ -4,7 +4,8 @@ import { Hero } from "@/components/sections/Hero";
 import { SocialProof } from "@/components/sections/SocialProof";
 import { CoreOfferings } from "@/components/sections/CoreOfferings";
 import { RekordDifference } from "@/components/sections/RekordDifference";
-import { VisualDivider } from "@/components/sections/VisualDivider";
+import { BlogPreview } from "@/components/sections/BlogPreview";
+
 import { DeepDiveERP } from "@/components/sections/DeepDiveERP";
 import { DeepDiveRatusz } from "@/components/sections/DeepDiveRatusz";
 import { OurHistory } from "@/components/sections/OurHistory";
@@ -40,7 +41,7 @@ const Index = () => {
 
     // Add Google Fonts
     const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap";
+    link.href = "https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
 
@@ -55,8 +56,8 @@ const Index = () => {
       <Hero />
       <SocialProof />
       <CoreOfferings />
+      <BlogPreview />
       <RekordDifference />
-      <VisualDivider imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000" />
       <DeepDiveERP />
       <DeepDiveRatusz />
       <OurHistory />

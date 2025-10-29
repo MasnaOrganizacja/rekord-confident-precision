@@ -42,7 +42,7 @@ export const VideoDivider = () => {
           <h3 className="text-6xl lg:text-8xl font-bold text-[hsl(var(--warm-white))] mb-6">
             Tworzymy oprogramowanie
           </h3>
-          <h3 className="text-6xl lg:text-8xl font-bold text-[hsl(var(--electric-cyan))]">
+          <h3 className="text-6xl lg:text-8xl font-bold text-white">
             dla ludzi. Z ludźmi.
           </h3>
         </div>

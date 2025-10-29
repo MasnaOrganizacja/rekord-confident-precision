@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Award, MapPin, Headphones, Zap } from "lucide-react";
+import { Award, MapPin, Headphones, Zap, Shield, Clock } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -104,6 +104,30 @@ export const RekordDifference = () => {
             </h3>
             <p className="text-gray-700 leading-relaxed">
               Inwestujemy w rozwój produktów i nowe technologie, aby nasze systemy zawsze wyprzedzały rynek.
+            </p>
+          </div>
+
+          {/* Small box 4 */}
+          <div className="bento-box bg-white border-4 border-luxury-forest-green p-8 group hover:border-luxury-forest-green/80 transition-all duration-300 shadow-lg">
+            <Shield className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300" />
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Bezpieczeństwo Danych
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              Najwyższe standardy bezpieczeństwa, szyfrowanie danych i zgodność z RODO. 
+              Twoje dane są chronione na każdym etapie przetwarzania.
+            </p>
+          </div>
+
+          {/* Small box 5 */}
+          <div className="bento-box bg-white border-4 border-luxury-forest-green p-8 group hover:border-luxury-forest-green/80 transition-all duration-300 shadow-lg">
+            <Clock className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300" />
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Szybkie Wdrożenie
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              Sprawdzone metodologie wdrożenia pozwalają na uruchomienie systemu w rekordowym czasie. 
+              Minimalizujemy przestoje i maksymalizujemy efektywność.
             </p>
           </div>
         </div>

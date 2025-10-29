@@ -117,29 +117,29 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <section className="relative py-32 bg-[hsl(var(--deep-navy))] overflow-hidden">
+    <section className="relative py-32 bg-luxury-forest-green overflow-hidden">
       <div className="container mx-auto px-8">
-        <h2 className="text-5xl lg:text-7xl font-bold text-[hsl(var(--warm-white))] text-center mb-20">
-          Co mówią nasi <span className="text-[hsl(var(--electric-cyan))]">Klienci</span>
+        <h2 className="text-5xl lg:text-7xl font-bold text-white text-center mb-20">
+          Co mówią nasi <span className="text-white/90">Klienci</span>
         </h2>
 
         <div className="relative max-w-5xl mx-auto">
           {/* Quote Icon */}
-          <Quote className="absolute -top-8 left-0 w-24 h-24 text-[hsl(var(--electric-cyan))/20]" />
+          <Quote className="absolute -top-8 left-0 w-24 h-24 text-white/20" />
 
           {/* Testimonial Content */}
-          <div className="bg-[hsl(var(--warm-white))] border-4 border-[hsl(var(--electric-cyan))] p-16 min-h-[400px] flex flex-col justify-center">
-            <p className="text-2xl lg:text-3xl text-[hsl(var(--deep-navy))] leading-relaxed mb-12 font-medium">
+          <div className="bg-white border-4 border-white p-16 min-h-[400px] flex flex-col justify-center shadow-lg">
+            <p className="text-2xl lg:text-3xl text-gray-900 leading-relaxed mb-12 font-medium">
               "{testimonials[currentIndex].quote}"
             </p>
             <div>
-              <p className="text-xl font-bold text-[hsl(var(--deep-navy))]">
+              <p className="text-xl font-bold text-gray-900">
                 {testimonials[currentIndex].author}
               </p>
-              <p className="text-lg text-[hsl(var(--near-black))/70]">
+              <p className="text-lg text-gray-600">
                 {testimonials[currentIndex].position}
               </p>
-              <p className="text-lg text-[hsl(var(--electric-cyan))] font-bold">
+              <p className="text-lg text-luxury-forest-green font-bold">
                 {testimonials[currentIndex].company}
               </p>
             </div>
@@ -149,20 +149,20 @@ export const Testimonials = () => {
           <div className="flex justify-center gap-4 mt-12">
             <button
               onClick={prevSlide}
-              className="w-16 h-16 border-4 border-[hsl(var(--electric-cyan))] bg-transparent text-[hsl(var(--electric-cyan))] hover:bg-[hsl(var(--electric-cyan))] hover:text-[hsl(var(--deep-navy))] transition-all duration-300 flex items-center justify-center"
+              className="w-16 h-16 border-4 border-white bg-transparent text-white hover:bg-white hover:text-luxury-forest-green transition-all duration-300 flex items-center justify-center"
             >
               <ChevronLeft className="w-8 h-8" />
             </button>
             <button
               onClick={nextSlide}
-              className="w-16 h-16 border-4 border-[hsl(var(--electric-cyan))] bg-transparent text-[hsl(var(--electric-cyan))] hover:bg-[hsl(var(--electric-cyan))] hover:text-[hsl(var(--deep-navy))] transition-all duration-300 flex items-center justify-center"
+              className="w-16 h-16 border-4 border-white bg-transparent text-white hover:bg-white hover:text-luxury-forest-green transition-all duration-300 flex items-center justify-center"
             >
               <ChevronRight className="w-8 h-8" />
             </button>
           </div>
 
           {/* Indicator */}
-          <p className="text-center text-[hsl(var(--warm-white))/60] mt-6">
+          <p className="text-center text-white/60 mt-6">
             {currentIndex + 1} / {testimonials.length}
           </p>
         </div>

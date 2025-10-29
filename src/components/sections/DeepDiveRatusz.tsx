@@ -28,13 +28,13 @@ export const DeepDiveRatusz = () => {
   ];
 
   return (
-    <section className="py-32 bg-[hsl(var(--warm-white))]">
+    <section className="py-32 bg-gray-50">
       <div className="container mx-auto px-8">
-        <h2 className="text-6xl font-bold text-[hsl(var(--deep-navy))] mb-8 text-center">
-          <span className="text-[hsl(var(--electric-cyan))]">RATUSZ</span> – Cyfrowa Administracja
+        <h2 className="text-6xl font-bold text-gray-900 mb-8 text-center">
+          <span className="text-luxury-forest-green">RATUSZ</span> – Cyfrowa Administracja
         </h2>
-        <p className="text-xl text-[hsl(var(--near-black))/70] text-center mb-16 max-w-3xl mx-auto">
-          Kompleksowe rozwiązanie dla jednostek samorządu terytorialnego, 
+        <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+          Kompleksowe rozwiązanie dla jednostek samorządu terytorialnego,
           zaufane przez 60% samorządów województwa śląskiego
         </p>
 
@@ -47,15 +47,13 @@ export const DeepDiveRatusz = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveTab(idx)}
-                  className={`p-6 border-4 transition-all duration-300 ${
-                    activeTab === idx
-                      ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--electric-cyan))] text-[hsl(var(--warm-white))]"
-                      : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
-                  }`}
+                  className={`p-6 border-4 transition-all duration-300 ${activeTab === idx
+                      ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+                      : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
+                    }`}
                 >
-                  <Icon className={`w-10 h-10 mb-3 mx-auto ${
-                    activeTab === idx ? "text-[hsl(var(--electric-cyan))]" : ""
-                  }`} />
+                  <Icon className={`w-10 h-10 mb-3 mx-auto ${activeTab === idx ? "text-white" : ""
+                    }`} />
                   <span className="font-bold text-sm lg:text-base">{tab.title}</span>
                 </button>
               );
@@ -63,16 +61,16 @@ export const DeepDiveRatusz = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="bg-white border-4 border-[hsl(var(--deep-navy))] p-12">
+          <div className="bg-white border-4 border-luxury-forest-green p-12 shadow-lg">
             <div className="animate-fade-in">
-              <h3 className="text-4xl font-bold text-[hsl(var(--deep-navy))] mb-6 flex items-center gap-4">
+              <h3 className="text-4xl font-bold text-gray-900 mb-6 flex items-center gap-4">
                 {(() => {
                   const Icon = tabs[activeTab].icon;
-                  return <Icon className="w-12 h-12 text-[hsl(var(--electric-cyan))]" />;
+                  return <Icon className="w-12 h-12 text-luxury-forest-green" />;
                 })()}
                 {tabs[activeTab].title}
               </h3>
-              <p className="text-lg text-[hsl(var(--near-black))/80] leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 {tabs[activeTab].content}
               </p>
             </div>

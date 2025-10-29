@@ -119,12 +119,12 @@ export const FAQ = () => {
   };
 
   return (
-    <section className="py-32 bg-[hsl(var(--warm-white))]">
+    <section className="py-32 bg-gray-50">
       <div className="container mx-auto px-8">
-        <h2 className="text-5xl lg:text-7xl font-bold text-[hsl(var(--deep-navy))] text-center mb-6">
-          Najczęściej Zadawane <span className="text-[hsl(var(--electric-cyan))]">Pytania</span>
+        <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+          Najczęściej Zadawane <span className="text-luxury-forest-green">Pytania</span>
         </h2>
-        <p className="text-xl text-[hsl(var(--near-black))/70] text-center mb-16">
+        <p className="text-xl text-gray-600 text-center mb-16">
           Odpowiedzi na kluczowe pytania naszych klientów
         </p>
 
@@ -132,45 +132,42 @@ export const FAQ = () => {
         <div className="flex justify-center gap-4 mb-12">
           <button
             onClick={() => setCategory("general")}
-            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
-              category === "general"
-                ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--deep-navy))] text-[hsl(var(--warm-white))]"
-                : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
-            }`}
+            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${category === "general"
+              ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+              : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
+              }`}
           >
             Pytania Ogólne
           </button>
           <button
             onClick={() => setCategory("erp")}
-            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
-              category === "erp"
-                ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--deep-navy))] text-[hsl(var(--warm-white))]"
-                : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
-            }`}
+            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${category === "erp"
+              ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+              : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
+              }`}
           >
             Rekord.ERP
           </button>
           <button
             onClick={() => setCategory("ratusz")}
-            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
-              category === "ratusz"
-                ? "bg-[hsl(var(--deep-navy))] border-[hsl(var(--deep-navy))] text-[hsl(var(--warm-white))]"
-                : "bg-white border-[hsl(var(--deep-navy))] text-[hsl(var(--deep-navy))] hover:border-[hsl(var(--electric-cyan))]"
-            }`}
+            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${category === "ratusz"
+              ? "bg-luxury-forest-green border-luxury-forest-green text-white"
+              : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
+              }`}
           >
             RATUSZ
           </button>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-4xl mx-auto bg-white border-4 border-[hsl(var(--deep-navy))] p-8">
+        <div className="max-w-4xl mx-auto bg-white border-4 border-luxury-forest-green p-8 shadow-lg">
           <Accordion type="single" collapsible className="w-full">
             {faqs[category].map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="border-b-2 border-[hsl(var(--deep-navy))]">
-                <AccordionTrigger className="text-left text-lg font-bold text-[hsl(var(--deep-navy))] hover:text-[hsl(var(--electric-cyan))] py-6">
+              <AccordionItem key={idx} value={`item-${idx}`} className="border-b-2 border-luxury-forest-green">
+                <AccordionTrigger className="text-left text-lg font-bold text-gray-900 hover:text-luxury-forest-green py-6">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-[hsl(var(--near-black))/80] leading-relaxed pb-6">
+                <AccordionContent className="text-gray-700 leading-relaxed pb-6">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

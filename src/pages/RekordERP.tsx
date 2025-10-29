@@ -40,6 +40,12 @@ const RekordERP = () => {
 
     requestAnimationFrame(raf);
 
+    // Add Google Fonts
+    const link = document.createElement("link");
+    link.href = "https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
     // Hero text reveal animation
     if (heroRef.current) {
       const words = heroRef.current.querySelectorAll(".hero-word");
@@ -248,7 +254,7 @@ const RekordERP = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content - 60% */}
             <div className="lg:col-span-7 space-y-8">
-              <h1 className="text-6xl lg:text-8xl font-bold text-[#F0F6FC] leading-tight font-['Space_Grotesk']">
+              <h1 className="text-6xl lg:text-8xl font-bold text-[#F0F6FC] leading-tight font-rubik">
                 <span className="hero-word inline-block">Twoje</span>{" "}
                 <span className="hero-word inline-block">Dane.</span>{" "}
                 <br />
@@ -327,7 +333,7 @@ const RekordERP = () => {
       {/* CFO Dilemma Section */}
       <section className="py-32 bg-[#F0F6FC]">
         <div className="container mx-auto px-8 text-center">
-          <h2 className="text-6xl font-bold text-[#0D1117] mb-16 font-['Space_Grotesk']">
+          <h2 className="text-6xl font-bold text-[#0D1117] mb-16 font-rubik">
             Nawigowanie w niepewności wymaga więcej niż instynktu.
           </h2>
           
@@ -352,7 +358,7 @@ const RekordERP = () => {
       <section className="py-32 bg-[#0D1117]">
         <div className="container mx-auto px-8">
           <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-['Space_Grotesk']">
+            <h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
               Twój Zintegrowany <span className="text-[#34D399]">Ekosystem</span>
             </h2>
             <p className="text-xl text-[#8B949E] max-w-3xl mx-auto">
@@ -391,7 +397,7 @@ const RekordERP = () => {
               >
                 <div>
                   <module.icon className={`w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300 ${module.textColor}`} />
-                  <h3 className={`text-2xl font-bold mb-4 font-['Space_Grotesk'] ${module.textColor}`}>
+                  <h3 className={`text-2xl font-bold mb-4 font-rubik ${module.textColor}`}>
                     {module.title}
                   </h3>
                   <p className={`${module.textColor === 'text-[#F0F6FC]' ? 'text-[#8B949E]' : 'text-[#21262D]'} leading-relaxed`}>
@@ -449,7 +455,7 @@ const RekordERP = () => {
                   className="space-y-6"
                   onMouseEnter={() => setActiveKPI(idx)}
                 >
-                  <h3 className="text-4xl font-bold text-[#0D1117] font-['Space_Grotesk']">
+                  <h3 className="text-4xl font-bold text-[#0D1117] font-rubik">
                     {kpi.title}
                   </h3>
                   <p className="text-xl text-[#21262D] leading-relaxed">
@@ -469,7 +475,7 @@ const RekordERP = () => {
       <section className="py-32 bg-[#0D1117]">
         <div className="container mx-auto px-8">
           <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-['Space_Grotesk']">
+            <h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
               Silnik <span className="text-[#34D399]">ROI</span>
             </h2>
             <p className="text-xl text-[#8B949E] max-w-3xl mx-auto">
@@ -566,7 +572,7 @@ const RekordERP = () => {
       {/* Implementation Roadmap - Horizontal Scroll */}
       <section className="py-32 bg-[#F0F6FC] overflow-hidden">
         <div className="container mx-auto px-8 mb-20">
-          <h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-['Space_Grotesk']">
+          <h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-rubik">
             Mapa Drogowa <span className="text-[#34D399]">Wdrożenia</span>
           </h2>
           <p className="text-xl text-[#21262D] text-center max-w-3xl mx-auto">
@@ -586,7 +592,7 @@ const RekordERP = () => {
                     {(idx + 1).toString().padStart(2, '0')}
                   </div>
                   <step.icon className="w-16 h-16 text-[#34D399] mb-6" />
-                  <h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-['Space_Grotesk']">
+                  <h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-rubik">
                     {step.title}
                   </h3>
                   <p className="text-[#8B949E] leading-relaxed mb-6">
@@ -606,7 +612,7 @@ const RekordERP = () => {
       <section className="py-32 bg-[#0D1117]">
         <div className="container mx-auto px-8">
           <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-['Space_Grotesk']">
+            <h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
               Historie <span className="text-[#34D399]">Sukcesu</span>
             </h2>
             <p className="text-xl text-[#8B949E] max-w-3xl mx-auto">
@@ -647,7 +653,7 @@ const RekordERP = () => {
         </div>
 
         <div className="container mx-auto px-8 text-center relative z-10">
-          <h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-['Space_Grotesk']">
+          <h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-rubik">
             Gotowy, by zbudować odporne przedsiębiorstwo?
           </h2>
           <p className="text-xl text-[#0D1117]/80 mb-12 max-w-3xl mx-auto">
