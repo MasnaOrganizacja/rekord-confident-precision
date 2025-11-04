@@ -1,0 +1,23 @@
+{
+	"name": "NEXORA - Oprogramowanie Zarządzania",
+	"short_name": "NEXORA",
+	"icons": [
+		{
+			"src": "/web-app-manifest-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/web-app-manifest-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	],
+	"theme_color": "#1a4d3a",
+	"background_color": "#ffffff",
+	"display": "standalone",
+	"start_url": "/",
+	"description": "Lider oprogramowania zarządzania w Polsce. Systemy NEXORA.FLOW i NEXORA.CIVIC dla biznesu i administracji publicznej."
+}
