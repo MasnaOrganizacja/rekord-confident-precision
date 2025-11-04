@@ -116,16 +116,16 @@ export const FAQ = () => {
 	return (
 		<section className="py-32 bg-gray-50">
 			<div className="container mx-auto px-8">
-				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+				<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-4 sm:mb-6 px-4">
 					Najczęściej Zadawane <span className="text-luxury-forest-green">Pytania</span>
 				</h2>
-				<p className="text-xl text-gray-600 text-center mb-16">Odpowiedzi na kluczowe pytania naszych klientów</p>
+				<p className="text-lg sm:text-xl text-gray-600 text-center mb-12 sm:mb-16 px-4">Odpowiedzi na kluczowe pytania naszych klientów</p>
 
 				{/* Category Tabs */}
-				<div className="flex justify-center gap-4 mb-12">
+				<div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-4">
 					<button
 						onClick={() => setCategory('general')}
-						className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
+						className={`px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border-2 font-bold transition-all duration-300 text-sm sm:text-base ${
 							category === 'general'
 								? 'bg-luxury-forest-green border-luxury-forest-green text-white'
 								: 'bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80'
@@ -134,7 +134,7 @@ export const FAQ = () => {
 					</button>
 					<button
 						onClick={() => setCategory('flow')}
-						className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
+						className={`px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border-2 font-bold transition-all duration-300 text-sm sm:text-base ${
 							category === 'flow'
 								? 'bg-luxury-forest-green border-luxury-forest-green text-white'
 								: 'bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80'
@@ -143,7 +143,7 @@ export const FAQ = () => {
 					</button>
 					<button
 						onClick={() => setCategory('civic')}
-						className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
+						className={`px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border-2 font-bold transition-all duration-300 text-sm sm:text-base ${
 							category === 'civic'
 								? 'bg-luxury-forest-green border-luxury-forest-green text-white'
 								: 'bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80'
@@ -153,14 +153,14 @@ export const FAQ = () => {
 				</div>
 
 				{/* FAQ Accordion */}
-				<div className="max-w-4xl mx-auto bg-white border-4 border-luxury-forest-green p-8 shadow-lg">
+				<div className="max-w-4xl mx-auto bg-white border-4 border-luxury-forest-green p-4 sm:p-6 lg:p-8 shadow-lg">
 					<Accordion type="single" collapsible className="w-full">
 						{faqs[category].map((faq, idx) => (
 							<AccordionItem key={idx} value={`item-${idx}`} className="border-b-2 border-luxury-forest-green">
-								<AccordionTrigger className="text-left text-lg font-bold text-gray-900 hover:text-luxury-forest-green py-6">
+								<AccordionTrigger className="text-left text-base sm:text-lg font-bold text-gray-900 hover:text-luxury-forest-green py-4 sm:py-6 pr-4">
 									{faq.q}
 								</AccordionTrigger>
-								<AccordionContent className="text-gray-700 leading-relaxed pb-6">{faq.a}</AccordionContent>
+								<AccordionContent className="text-sm sm:text-base text-gray-700 leading-relaxed pb-4 sm:pb-6">{faq.a}</AccordionContent>
 							</AccordionItem>
 						))}
 					</Accordion>

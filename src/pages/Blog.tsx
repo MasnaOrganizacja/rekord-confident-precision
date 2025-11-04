@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Blog = () => {
 	const lenisRef = useRef<Lenis | null>(null)
+	const floatingElementsRef = useRef<HTMLDivElement>(null)
 	const [activeFilter, setActiveFilter] = useState('wszystkie')
 	const [filteredArticles, setFilteredArticles] = useState<any[]>([])
 
@@ -55,6 +56,21 @@ const Blog = () => {
 				},
 			}
 		)
+
+		// Floating elements animation for newsletter section
+		if (floatingElementsRef.current) {
+			const floatingElements = floatingElementsRef.current.children
+			Array.from(floatingElements).forEach((element, index) => {
+				gsap.to(element, {
+					y: -20,
+					duration: 3 + index * 0.4,
+					repeat: -1,
+					yoyo: true,
+					ease: 'power2.inOut',
+					delay: index * 0.3,
+				})
+			})
+		}
 
 		return () => {
 			lenis.destroy()
@@ -341,8 +357,18 @@ const Blog = () => {
 			</section>
 
 			{/* Newsletter CTA */}
-			<section className="py-32 bg-luxury-forest-green">
-				<div className="container mx-auto px-8 text-center">
+			<section className="py-32 bg-gradient-to-br from-luxury-forest-green via-luxury-forest-green to-luxury-forest-green/90 relative overflow-hidden">
+				{/* Floating Background Elements */}
+				<div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none">
+					<div className="absolute top-20 left-10 w-24 h-24 border-3 border-white/10 rotate-45" />
+					<div className="absolute top-32 right-16 w-18 h-18 bg-white/5 rounded-full" />
+					<div className="absolute bottom-32 left-1/4 w-12 h-12 border-2 border-white/10" />
+					<div className="absolute bottom-20 right-1/3 w-16 h-16 bg-white/5 rotate-12" />
+					<LineIcon name="bulb" className="absolute top-24 right-1/4 w-8 h-8 text-white/10" />
+					<LineIcon name="envelope" className="absolute bottom-24 left-1/3 w-6 h-6 text-white/10" />
+				</div>
+				
+				<div className="container mx-auto px-8 text-center relative z-10">
 					<h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 font-rubik">
 						Wiedza, która daje <span className="text-white/80">przewagę</span>
 					</h2>

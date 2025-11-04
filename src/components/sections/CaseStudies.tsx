@@ -92,6 +92,8 @@ export const CaseStudies = () => {
   ];
 
   const filteredCases = cases.filter((c) => filter === "all" || c.category === filter);
+  // Show only first 3 cases
+  const displayedCases = filteredCases.slice(0, 3);
 
   return (
     <section id="case-studies" className="py-32 bg-gray-50">
@@ -104,10 +106,10 @@ export const CaseStudies = () => {
         </p>
 
         {/* Filters */}
-        <div className="flex justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           <button
             onClick={() => setFilter("all")}
-            className={`px-8 py-4 border-2 font-bold transition-all duration-300 ${
+            className={`px-6 sm:px-8 py-3 sm:py-4 border-2 font-bold transition-all duration-300 text-sm sm:text-base ${
               filter === "all"
                 ? "bg-luxury-forest-green border-luxury-forest-green text-white"
                 : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
@@ -117,35 +119,35 @@ export const CaseStudies = () => {
           </button>
           <button
             onClick={() => setFilter("enterprise")}
-            className={`px-8 py-4 border-2 font-bold transition-all duration-300 flex items-center gap-2 ${
+            className={`px-6 sm:px-8 py-3 sm:py-4 border-2 font-bold transition-all duration-300 flex items-center gap-2 text-sm sm:text-base ${
               filter === "enterprise"
                 ? "bg-luxury-forest-green border-luxury-forest-green text-white"
                 : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
             }`}
           >
-            <Factory className="w-5 h-5" />
+            <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
             Przedsiębiorstwa
           </button>
           <button
             onClick={() => setFilter("public")}
-            className={`px-8 py-4 border-2 font-bold transition-all duration-300 flex items-center gap-2 ${
+            className={`px-6 sm:px-8 py-3 sm:py-4 border-2 font-bold transition-all duration-300 flex items-center gap-2 text-sm sm:text-base ${
               filter === "public"
                 ? "bg-luxury-forest-green border-luxury-forest-green text-white"
                 : "bg-white border-luxury-forest-green text-luxury-forest-green hover:border-luxury-forest-green/80"
             }`}
           >
-            <Landmark className="w-5 h-5" />
+            <Landmark className="w-4 h-4 sm:w-5 sm:h-5" />
             Administracja Publiczna
           </button>
         </div>
 
-        {/* Masonry Grid */}
+        {/* Cases Grid - Show only first 3 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {filteredCases.map((caseStudy, idx) => (
+          {displayedCases.map((caseStudy, idx) => (
             <div
               key={idx}
               className="group cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${idx * 0.05}s` }}
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="overflow-hidden border-4 border-luxury-forest-green mb-4 group-hover:border-luxury-forest-green/80 transition-all duration-300 shadow-lg">
                 <img
@@ -154,13 +156,13 @@ export const CaseStudies = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 {caseStudy.client}
               </h3>
-              <p className="text-sm text-gray-500 mb-3 uppercase tracking-wider">
+              <p className="text-xs sm:text-sm text-gray-500 mb-3 uppercase tracking-wider">
                 {caseStudy.industry}
               </p>
-              <p className="text-lg text-luxury-forest-green font-bold">
+              <p className="text-base sm:text-lg text-luxury-forest-green font-bold">
                 {caseStudy.result}
               </p>
             </div>

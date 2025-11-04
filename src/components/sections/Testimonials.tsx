@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { LineIcon } from '@/components/ui/lineicon'
+import { gsap } from 'gsap'
 
 export const Testimonials = () => {
 	const [currentIndex, setCurrentIndex] = useState(0)
+	const floatingElementsRef = useRef<HTMLDivElement>(null)
 
 	const testimonials = [
 		{
@@ -129,12 +131,38 @@ export const Testimonials = () => {
 
 	useEffect(() => {
 		const timer = setInterval(nextSlide, 8000)
+		
+		// Floating elements animation
+		if (floatingElementsRef.current) {
+			const floatingElements = floatingElementsRef.current.children
+			Array.from(floatingElements).forEach((element, index) => {
+				gsap.to(element, {
+					y: -15,
+					duration: 2.8 + index * 0.4,
+					repeat: -1,
+					yoyo: true,
+					ease: 'power2.inOut',
+					delay: index * 0.25,
+				})
+			})
+		}
+		
 		return () => clearInterval(timer)
 	}, [])
 
 	return (
-		<section className="relative py-16 md:py-32 bg-luxury-forest-green overflow-hidden">
-			<div className="container mx-auto px-4 md:px-8">
+		<section className="relative py-16 md:py-32 bg-gradient-to-br from-luxury-forest-green via-luxury-forest-green to-luxury-forest-green/90 overflow-hidden">
+			{/* Floating Background Elements */}
+			<div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none">
+				<div className="absolute top-16 left-8 w-20 h-20 border-2 border-white/10 rotate-45" />
+				<div className="absolute top-24 right-12 w-16 h-16 bg-white/5 rounded-full" />
+				<div className="absolute bottom-24 left-1/4 w-12 h-12 border border-white/10" />
+				<div className="absolute bottom-16 right-1/3 w-14 h-14 bg-white/5 rotate-12" />
+				<LineIcon name="quotation" className="absolute top-20 right-1/4 w-8 h-8 text-white/10" />
+				<LineIcon name="users" className="absolute bottom-20 left-1/3 w-6 h-6 text-white/10" />
+			</div>
+			
+			<div className="container mx-auto px-4 md:px-8 relative z-10">
 				<h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-12 md:mb-20">
 					Co mówią nasi <span className="text-white/90">Klienci</span>
 				</h2>

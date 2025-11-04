@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export const BlogPreview = () => {
 	const sectionRef = useRef<HTMLElement>(null)
+	const floatingElementsRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		if (!sectionRef.current) return
@@ -45,6 +46,21 @@ export const BlogPreview = () => {
 				},
 			}
 		)
+
+		// Floating elements animation for newsletter section
+		if (floatingElementsRef.current) {
+			const floatingElements = floatingElementsRef.current.children
+			Array.from(floatingElements).forEach((element, index) => {
+				gsap.to(element, {
+					y: -15,
+					duration: 2.5 + index * 0.3,
+					repeat: -1,
+					yoyo: true,
+					ease: 'power2.inOut',
+					delay: index * 0.2,
+				})
+			})
+		}
 	}, [])
 
 	const featuredArticle = {
@@ -137,38 +153,38 @@ export const BlogPreview = () => {
 		return colors[category] || 'bg-gray-500 text-white'
 	}
 
-	return (
-		<section ref={sectionRef} className="py-32 bg-gray-50">
-			<div className="max-w-[1600px] mx-auto px-8">
-				{/* Section Header */}
-				<div className="text-center mb-20">
-					<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 font-rubik">
-						Centrum <span className="text-luxury-forest-green">Wiedzy</span>
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-						Ekspertka wiedza, praktyczne poradniki i najnowsze trendy w transformacji cyfrowej. Budujemy autoritet
-						poprzez wartościowe treści dla przedsiębiorców i administratorów publicznych.
-					</p>
-				</div>
+  return (
+    <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-gray-50">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Centrum <span className="text-luxury-forest-green">Wiedzy</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            Ekspertka wiedza, praktyczne poradniki i najnowsze trendy w transformacji cyfrowej. 
+            Budujemy autoritet poprzez wartościowe treści dla przedsiębiorców i administratorów publicznych.
+          </p>
+        </div>
 
-				{/* Featured Article - Asymmetric 60/40 Layout */}
-				<div className="featured-article mb-24">
-					<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white border-4 border-gray-900 shadow-2xl overflow-hidden">
+				{/* Featured Article - Hidden on mobile, visible on desktop */}
+				<div className="featured-article mb-16 sm:mb-20 lg:mb-24 hidden md:block">
+					<div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-12 items-center bg-white border-4 border-gray-900 shadow-2xl overflow-hidden">
 						{/* Left Content - 60% */}
-						<div className="lg:col-span-7 p-12">
-							<div className="space-y-6">
+						<div className="lg:col-span-7 p-6 sm:p-8 lg:p-12">
+							<div className="space-y-4 sm:space-y-6">
 								<div
-									className={`inline-block px-4 py-2 text-sm font-bold ${getCategoryColor(featuredArticle.category)}`}>
+									className={`inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-bold ${getCategoryColor(featuredArticle.category)}`}>
 									{getCategoryLabel(featuredArticle.category).toUpperCase()}
 								</div>
 
-								<h3 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-rubik">
+								<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
 									{featuredArticle.title}
 								</h3>
 
-								<p className="text-lg text-gray-600 leading-relaxed">{featuredArticle.excerpt}</p>
+								<p className="text-base sm:text-lg text-gray-600 leading-relaxed">{featuredArticle.excerpt}</p>
 
-								<div className="flex items-center space-x-6 text-gray-500">
+								<div className="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-2 sm:space-y-0 text-sm sm:text-base text-gray-500">
 									<div className="flex items-center space-x-2">
 										<LineIcon name="user" className="w-4 h-4" />
 										<span>{featuredArticle.author}</span>
@@ -183,18 +199,11 @@ export const BlogPreview = () => {
 									</div>
 								</div>
 							</div>
-
-							{/* <Button
-								size="lg"
-								className="mt-8 bg-luxury-forest-green text-white hover:bg-luxury-forest-green/90 font-bold px-8 py-6 text-lg border-2 border-luxury-forest-green transition-all duration-300 hover:scale-105">
-								Czytaj dalej
-								<LineIcon name="arrow-right" className="w-6 h-6 ml-2" />
-							</Button> */}
 						</div>
 
 						{/* Right Content - 40% */}
 						<div className="lg:col-span-5">
-							<div className="relative overflow-hidden h-[500px]">
+							<div className="relative overflow-hidden h-48 sm:h-64 lg:h-[500px]">
 								<img
 									src={featuredArticle.image}
 									alt={featuredArticle.title}
@@ -205,32 +214,71 @@ export const BlogPreview = () => {
 					</div>
 				</div>
 
-				{/* Articles Grid - Asymmetric Masonry Style */}
+				{/* Articles Grid - Show only 3 articles on mobile, all on desktop */}
 				<div className="articles-grid">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 mb-16">
-						{articles.map((article, idx) => (
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16">
+						{articles.slice(0, 3).map((article, idx) => (
 							<div
 								key={article.id}
-								className={`article-card bg-white border-4 border-gray-900 hover:border-luxury-forest-green transition-all duration-300 hover:shadow-2xl group cursor-pointer ${
-									idx === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+								className="article-card bg-white border-4 border-gray-900 hover:border-luxury-forest-green transition-all duration-300 hover:shadow-2xl group cursor-pointer md:hidden">
+								<div className="overflow-hidden">
+									<img
+										src={article.image}
+										alt={article.title}
+										className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+									/>
+								</div>
+
+								<div className="p-4 sm:p-6">
+									<div
+										className={`inline-block px-2 sm:px-3 py-1 text-xs font-bold mb-3 sm:mb-4 ${getCategoryColor(article.category)}`}>
+										{getCategoryLabel(article.category).toUpperCase()}
+									</div>
+
+									<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-luxury-forest-green transition-colors duration-300">
+										{article.title}
+									</h3>
+
+									<p className="text-gray-600 mb-4 leading-relaxed">{article.excerpt}</p>
+
+									<div className="flex items-center justify-between text-sm text-gray-500">
+										<div className="flex items-center space-x-4">
+											<span>{article.author}</span>
+											<span>{new Date(article.date).toLocaleDateString('pl-PL')}</span>
+										</div>
+										<div className="flex items-center space-x-1">
+											<LineIcon name="timer" className="w-4 h-4" />
+											<span>{article.readTime}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						))}
+						
+						{/* Desktop version - all articles with masonry layout */}
+						{articles.map((article, idx) => (
+							<div
+								key={`desktop-${article.id}`}
+								className={`article-card bg-white border-4 border-gray-900 hover:border-luxury-forest-green transition-all duration-300 hover:shadow-2xl group cursor-pointer hidden md:block ${
+									idx === 0 ? 'sm:col-span-2 lg:col-span-2' : ''
 								} ${idx === 3 ? 'lg:col-span-2 xl:col-span-2' : ''}`}>
 								<div className="overflow-hidden">
 									<img
 										src={article.image}
 										alt={article.title}
 										className={`w-full object-cover group-hover:scale-110 transition-transform duration-500 ${
-											idx === 3 ? 'h-48' : 'h-56'
+											idx === 3 ? 'h-40 sm:h-48' : 'h-48 sm:h-56'
 										}`}
 									/>
 								</div>
 
-								<div className="p-6">
+								<div className="p-4 sm:p-6">
 									<div
-										className={`inline-block px-3 py-1 text-xs font-bold mb-4 ${getCategoryColor(article.category)}`}>
+										className={`inline-block px-2 sm:px-3 py-1 text-xs font-bold mb-3 sm:mb-4 ${getCategoryColor(article.category)}`}>
 										{getCategoryLabel(article.category).toUpperCase()}
 									</div>
 
-									<h3 className="text-xl font-bold text-gray-900 mb-3 font-rubik group-hover:text-luxury-forest-green transition-colors duration-300">
+									<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-luxury-forest-green transition-colors duration-300">
 										{article.title}
 									</h3>
 
@@ -265,19 +313,32 @@ export const BlogPreview = () => {
 					</Link>
 				</div>
 
-				{/* Newsletter CTA */}
-				<div className="mt-24 bg-luxury-forest-green border-4 border-luxury-forest-green p-12 text-center">
-					<h3 className="text-4xl lg:text-5xl font-bold text-white mb-6 font-rubik">
+			</div>
+
+			{/* Newsletter CTA - Full Width */}
+			<div className="mt-24 bg-gradient-to-br from-luxury-forest-green via-luxury-forest-green to-luxury-forest-green/90 py-16 px-8 text-center relative overflow-hidden">
+				{/* Floating Background Elements */}
+				<div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none">
+					<div className="absolute top-8 left-8 w-16 h-16 border-2 border-white/10 rotate-45" />
+					<div className="absolute top-16 right-12 w-12 h-12 bg-white/5 rounded-full" />
+					<div className="absolute bottom-12 left-1/4 w-8 h-8 border border-white/10" />
+					<div className="absolute bottom-8 right-1/3 w-10 h-10 bg-white/5 rotate-12" />
+					<LineIcon name="bulb" className="absolute top-12 right-1/4 w-6 h-6 text-white/10" />
+					<LineIcon name="envelope" className="absolute bottom-16 left-1/3 w-5 h-5 text-white/10" />
+				</div>
+				
+				<div className="relative z-10 max-w-4xl mx-auto">
+					<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6">
 						Wiedza, która daje <span className="text-white/80">przewagę</span>
 					</h3>
-					<p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+					<p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
 						Zapisz się na nasz newsletter i otrzymuj najnowsze artykuły, analizy rynkowe i praktyczne poradniki
 						bezpośrednio na swoją skrzynkę e-mail.
 					</p>
 
-					<div className="max-w-xl mx-auto">
-						<form className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
-							<div className="sm:col-span-2">
+					<div className="max-w-xl mx-auto px-4">
+						<form className="flex flex-col sm:grid sm:grid-cols-3 gap-3 sm:gap-4 items-center">
+							<div className="w-full sm:col-span-2">
 								<label htmlFor="newsletter-email" className="sr-only">
 									Twój adres e-mail
 								</label>
@@ -285,18 +346,18 @@ export const BlogPreview = () => {
 									id="newsletter-email"
 									type="email"
 									placeholder="Twój adres e-mail"
-									className="w-full h-16 px-6 py-4 border-2 border-white bg-white text-gray-900 text-lg focus:outline-none focus:border-white/80"
+									className="w-full h-12 sm:h-16 px-4 sm:px-6 py-3 sm:py-4 border-2 border-white bg-white text-gray-900 text-base sm:text-lg focus:outline-none focus:border-white/80"
 								/>
 							</div>
 							<Button
 								type="submit"
-								className="w-full h-16 bg-white text-luxury-forest-green hover:bg-luxury-forest-green hover:text-white font-bold px-8 py-4 text-lg border-2 border-white transition-all duration-300 hover:scale-105">
+								className="w-full h-12 sm:h-16 bg-white text-luxury-forest-green hover:bg-luxury-forest-green hover:text-white font-bold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg border-2 border-white transition-all duration-300 hover:scale-105">
 								Zapisz się
 							</Button>
 						</form>
 					</div>
 
-					<p className="text-white/70 text-sm mt-4">Bez spamu. Możesz się wypisać w każdej chwili.</p>
+					<p className="text-white/70 text-sm mt-3 sm:mt-4 px-4">Bez spamu. Możesz się wypisać w każdej chwili.</p>
 				</div>
 			</div>
 		</section>

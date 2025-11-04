@@ -15,7 +15,7 @@ export default {
 		extend: {
 			fontFamily: {
 				rubik: ['Rubik', 'sans-serif'],
-				'space-grotesk': ['Space Grotesk', 'sans-serif'],
+				'sansation': ['Sansation', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

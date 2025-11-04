@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { LineIcon } from '@/components/ui/lineicon'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -8,6 +9,7 @@ export const DeepDiveFlow = () => {
 	const sectionRef = useRef<HTMLElement>(null)
 	const textRef = useRef<HTMLDivElement>(null)
 	const imagesRef = useRef<HTMLDivElement>(null)
+	const floatingElementsRef = useRef<HTMLDivElement>(null)
 
 	const features = [
 		{
@@ -39,14 +41,16 @@ export const DeepDiveFlow = () => {
 	useEffect(() => {
 		if (!sectionRef.current || !textRef.current || !imagesRef.current) return
 
-		// Pin the text column
-		ScrollTrigger.create({
-			trigger: sectionRef.current,
-			start: 'top top',
-			end: 'bottom bottom',
-			pin: textRef.current,
-			pinSpacing: false,
-		})
+		// Pin the text column - only on desktop
+		if (window.innerWidth >= 1024) {
+			ScrollTrigger.create({
+				trigger: sectionRef.current,
+				start: 'top top',
+				end: 'bottom bottom',
+				pin: textRef.current,
+				pinSpacing: false,
+			})
+		}
 
 		// Zoom effect on images
 		const images = imagesRef.current.querySelectorAll('img')
@@ -66,18 +70,43 @@ export const DeepDiveFlow = () => {
 				}
 			)
 		})
+
+		// Floating elements animation
+		if (floatingElementsRef.current) {
+			const floatingElements = floatingElementsRef.current.children
+			Array.from(floatingElements).forEach((element, index) => {
+				gsap.to(element, {
+					y: -20,
+					duration: 3 + index * 0.5,
+					repeat: -1,
+					yoyo: true,
+					ease: 'power2.inOut',
+					delay: index * 0.3,
+				})
+			})
+		}
 	}, [])
 
 	return (
-		<section ref={sectionRef} className="relative py-32 bg-luxury-forest-green">
-			<div className="container mx-auto px-8">
+		<section ref={sectionRef} className="relative py-32 bg-gradient-to-br from-luxury-forest-green via-luxury-forest-green to-luxury-forest-green/90 overflow-hidden">
+			{/* Floating Background Elements */}
+			<div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none">
+				<div className="absolute top-20 left-10 w-32 h-32 border-4 border-white/10 rotate-45" />
+				<div className="absolute top-40 right-20 w-24 h-24 bg-white/5 rounded-full" />
+				<div className="absolute bottom-40 left-1/4 w-16 h-16 border-2 border-white/10" />
+				<div className="absolute bottom-20 right-1/3 w-20 h-20 bg-white/5 rotate-12" />
+				<LineIcon name="bulb" className="absolute top-32 right-1/4 w-12 h-12 text-white/10" />
+				<LineIcon name="chart" className="absolute bottom-32 left-1/3 w-10 h-10 text-white/10" />
+			</div>
+			
+			<div className="container mx-auto px-8 relative z-10">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 					{/* Sticky Left Column */}
 					<div ref={textRef} className="lg:h-screen flex flex-col justify-center">
-						<h2 className="text-6xl font-bold text-white mb-8">
+						<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8">
 							NEXORA.<span className="text-white">FLOW</span>
 						</h2>
-						<p className="text-xl text-white/90 leading-relaxed">
+						<p className="text-lg sm:text-xl text-white/90 leading-relaxed">
 							System klasy enterprise, który łączy w sobie moc zaawansowanej analityki, elastyczność konfiguracji i
 							prostotę obsługi. Zbudowany dla firm, które myślą o przyszłości.
 						</p>

@@ -34,10 +34,10 @@ export const DeepDiveCivic = () => {
 	return (
 		<section className="py-32 bg-gray-50">
 			<div className="container mx-auto px-8">
-				<h2 className="text-6xl font-bold text-gray-900 mb-8 text-center">
+				<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
 					<span className="text-luxury-forest-green">NEXORA.CIVIC</span> – Cyfrowa Administracja
 				</h2>
-				<p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+				<p className="text-lg sm:text-xl text-gray-600 text-center mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
 					Kompleksowe rozwiązanie dla jednostek samorządu terytorialnego, zaufane przez 60% samorządów województwa
 					śląskiego
 				</p>

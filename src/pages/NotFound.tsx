@@ -10,6 +10,7 @@ const NotFound = () => {
 	const containerRef = useRef<HTMLDivElement>(null)
 	const glitchRef = useRef<HTMLDivElement>(null)
 	const lenisRef = useRef<Lenis | null>(null)
+	const floatingElementsRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		console.error('404 Error: User attempted to access non-existent route:', location.pathname)
@@ -102,6 +103,21 @@ const NotFound = () => {
 			stagger: 0.3,
 		})
 
+		// Floating elements animation for contact section
+		if (floatingElementsRef.current) {
+			const floatingElements = floatingElementsRef.current.children
+			Array.from(floatingElements).forEach((element, index) => {
+				gsap.to(element, {
+					y: -10,
+					duration: 2 + index * 0.3,
+					repeat: -1,
+					yoyo: true,
+					ease: 'power2.inOut',
+					delay: index * 0.2,
+				})
+			})
+		}
+
 		return () => {
 			clearInterval(glitchInterval)
 			lenis.destroy()
@@ -147,7 +163,7 @@ const NotFound = () => {
 					<div className="relative">
 						<div
 							ref={glitchRef}
-							className="error-code text-[12rem] lg:text-[16rem] font-bold text-luxury-forest-green font-rubik leading-none relative">
+							className="error-code text-[12rem] lg:text-[16rem] font-bold text-luxury-forest-green leading-none relative">
 							404
 							{/* Glitch layers */}
 							<div
@@ -163,16 +179,16 @@ const NotFound = () => {
 						</div>
 					</div>
 
-					{/* Error Title */}
-					<div className="space-y-6">
-						<h1 className="error-title text-4xl lg:text-6xl font-bold text-gray-900 font-rubik">
-							Strona <span className="text-luxury-forest-green">nie istnieje</span>
-						</h1>
-
-						<p className="error-description text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-							Wygląda na to, że zabłądziłeś w cyfrowej przestrzeni. Strona, której szukasz, została przeniesiona,
-							usunięta lub nigdy nie istniała.
-						</p>
+          {/* Error Title */}
+          <div className="space-y-6">
+            <h1 className="error-title text-4xl lg:text-6xl font-bold text-gray-900">
+              Strona <span className="text-luxury-forest-green">nie istnieje</span>
+            </h1>
+            
+            <p className="error-description text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Wygląda na to, że zabłądziłeś w cyfrowej przestrzeni. Strona, której szukasz, 
+              została przeniesiona, usunięta lub nigdy nie istniała.
+            </p>
 
 						{/* Current Path Display */}
 						<div className="bg-white border-4 border-gray-900 p-4 max-w-lg mx-auto">
@@ -206,7 +222,7 @@ const NotFound = () => {
 
 					{/* Quick Links */}
 					<div className="helpful-links">
-						<h3 className="text-2xl font-bold text-gray-900 mb-8 font-rubik">Może szukasz czegoś z tego?</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-8">Może szukasz czegoś z tego?</h3>
 
 						<div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
 							{quickLinks.map((link, idx) => {
@@ -229,10 +245,21 @@ const NotFound = () => {
 					</div>
 
 					{/* Contact Info */}
-					<div className="helpful-links bg-luxury-forest-green border-4 border-luxury-forest-green p-8 max-w-2xl mx-auto">
-						<h4 className="text-2xl font-bold text-white mb-4 font-rubik">
-							Nadal nie możesz znaleźć tego, czego szukasz?
-						</h4>
+					<div className="helpful-links bg-gradient-to-br from-luxury-forest-green via-luxury-forest-green to-luxury-forest-green/90 border-4 border-luxury-forest-green p-8 max-w-2xl mx-auto relative overflow-hidden">
+						{/* Floating Background Elements */}
+						<div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none">
+							<div className="absolute top-4 left-4 w-8 h-8 border border-white/10 rotate-45" />
+							<div className="absolute top-6 right-6 w-6 h-6 bg-white/5 rounded-full" />
+							<div className="absolute bottom-6 left-1/4 w-4 h-4 border border-white/10" />
+							<div className="absolute bottom-4 right-1/3 w-5 h-5 bg-white/5 rotate-12" />
+							<LineIcon name="envelope" className="absolute top-5 right-1/4 w-3 h-3 text-white/10" />
+							<LineIcon name="phone" className="absolute bottom-5 left-1/3 w-3 h-3 text-white/10" />
+						</div>
+						
+						<div className="relative z-10">
+							<h4 className="text-2xl font-bold text-white mb-4">
+								Nadal nie możesz znaleźć tego, czego szukasz?
+							</h4>
 						<p className="text-white/90 mb-6">
 							Skontaktuj się z naszym zespołem - chętnie pomożemy Ci znaleźć właściwą informację.
 						</p>
@@ -247,6 +274,7 @@ const NotFound = () => {
 								className="bg-white text-luxury-forest-green hover:bg-white/90 font-bold px-6 py-3 transition-all duration-300 hover:scale-105 border-2 border-white">
 								+48 32 353 88 00
 							</a>
+						</div>
 						</div>
 					</div>
 				</div>

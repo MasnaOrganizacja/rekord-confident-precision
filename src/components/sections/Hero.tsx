@@ -78,8 +78,24 @@ export const Hero = () => {
 		<section
 			id="home"
 			ref={heroRef}
-			className="relative min-h-screen flex items-center overflow-hidden bg-white  md:pt-0">
-			{/* Parallax Background Layers - Hidden on mobile */}
+			className="relative min-h-screen flex items-center overflow-hidden bg-white">
+			{/* Mobile Background Elements */}
+			<div className="absolute inset-0 lg:hidden">
+				{/* Mobile geometric shapes */}
+				<div className="absolute top-20 right-4 w-16 h-16 border-2 border-luxury-forest-green/20 rotate-45"></div>
+				<div className="absolute top-32 left-4 w-12 h-12 bg-luxury-forest-green/10 rounded-full"></div>
+				<div className="absolute bottom-40 right-8 w-20 h-20 border border-luxury-forest-green/15 -rotate-12"></div>
+				<div className="absolute bottom-60 left-6 w-8 h-8 bg-luxury-forest-green/20 rotate-45"></div>
+				<div className="absolute top-1/2 right-2 w-6 h-6 border border-luxury-forest-green/25 rounded-full"></div>
+				<div className="absolute bottom-20 left-1/2 w-14 h-14 border-2 border-luxury-forest-green/10 rotate-45"></div>
+
+				{/* Large background number */}
+				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-luxury-forest-green/5 text-[12rem] sm:text-[16rem] font-bold pointer-events-none select-none">
+					35
+				</div>
+			</div>
+
+			{/* Desktop Parallax Background Layers */}
 			<div ref={layer1Ref} className="parallax-layer absolute inset-0 opacity-10 hidden lg:block">
 				<div className="absolute top-20 left-20 w-96 h-96 border-4 border-luxury-forest-green rotate-12"></div>
 			</div>
@@ -93,8 +109,13 @@ export const Hero = () => {
 			<div className="container mx-auto px-8 relative z-10">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 					{/* Left Content - 55% */}
-					<div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-						<h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-900 leading-tight">
+					<div className="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
+						<div className="mb-4 sm:mb-6">
+							<span className="hero-word text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-luxury-forest-green">
+								NEXORA
+							</span>
+						</div>
+						<h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-gray-900 leading-tight">
 							<span className="hero-word inline-block">35</span> <span className="hero-word inline-block">Lat</span>{' '}
 							<span className="hero-word inline-block">Innowacji.</span> <br />
 							<span className="hero-word inline-block text-luxury-forest-green">Oprogramowanie,</span>{' '}
@@ -103,23 +124,23 @@ export const Hero = () => {
 							<span className="hero-word inline-block text-luxury-forest-green">Ludzi.</span>
 						</h1>
 
-						<p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+						<p className="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
 							Jesteśmy liderem w produkcji systemów zarządzania dla biznesu i administracji publicznej w Polsce. Zaufaj
 							partnerowi, który napędza cyfrową transformację.
 						</p>
 
-						<div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+						<div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start">
 							<Button
 								size="lg"
 								onClick={() => navigate('/nexora-flow')}
-								className="bg-luxury-forest-green text-white hover:bg-luxury-forest-green/90 font-bold px-8 py-6 text-lg border-2 border-luxury-forest-green transition-all duration-300 hover:scale-105 magnetic-button">
+								className="bg-luxury-forest-green text-white hover:bg-luxury-forest-green/90 font-bold px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg border-2 border-luxury-forest-green transition-all duration-300 hover:scale-105 magnetic-button">
 								Poznaj NEXORA.FLOW
 							</Button>
 							<Button
 								size="lg"
 								variant="outline"
 								onClick={() => navigate('/nexora-civic')}
-								className="border-2 border-luxury-forest-green text-luxury-forest-green hover:bg-luxury-forest-green hover:text-white font-bold px-8 py-6 text-lg transition-all duration-300 hover:scale-105 magnetic-button">
+								className="border-2 border-luxury-forest-green text-luxury-forest-green hover:bg-luxury-forest-green hover:text-white font-bold px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg transition-all duration-300 hover:scale-105 magnetic-button">
 								Odkryj NEXORA.CIVIC
 							</Button>
 						</div>

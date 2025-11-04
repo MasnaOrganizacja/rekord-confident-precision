@@ -46,29 +46,52 @@ export const NexoraDifference = () => {
 				{/* Asymmetric Bento Grid */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
 					{/* Large box - 2x2 on desktop */}
-					<div className="bento-box lg:col-span-2 lg:row-span-2 bg-luxury-forest-green border-4 border-luxury-forest-green p-12 group hover:border-luxury-forest-green/80 transition-all duration-300 shadow-lg">
+					<div className="bento-box lg:col-span-2 lg:row-span-2 bg-luxury-forest-green border-4 border-luxury-forest-green p-8 sm:p-12 group hover:border-luxury-forest-green/80 transition-all duration-300 shadow-lg">
 						<LineIcon
 							name="medal"
-							className="w-16 h-16 text-white mb-6 group-hover:scale-110 transition-transform duration-300"
+							className="w-12 h-12 sm:w-16 sm:h-16 text-white mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-4xl font-bold text-white mb-6">Doświadczenie i Stabilność</h3>
-						<p className="text-lg text-white/90 leading-relaxed mb-6">
-							Od 35 lat dostarczamy oprogramowanie klasy enterprise dla najbardziej wymagających klientów. Nasze
-							rozwiązania wspierają organizacje w każdym etapie rozwoju - od wdrożenia, przez codzienną pracę, aż po
-							transformację cyfrową.
-						</p>
-						<p className="text-lg text-white/90 leading-relaxed">
-							Ponad 500 organizacji wybrało NEXORA jako swojego długoterminowego partnera technologicznego. 60%
-							samorządów województwa śląskiego zaufało naszemu systemowi NEXORA.CIVIC.
-						</p>
-						<div className="mt-8 flex gap-8">
-							<div>
-								<div className="text-5xl font-bold text-white">500+</div>
-								<div className="text-white/80">Klientów</div>
+						<h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Doświadczenie i Stabilność</h3>
+						
+						{/* Mobile version - only first paragraph */}
+						<div className="lg:hidden">
+							<p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6">
+								Od 35 lat dostarczamy oprogramowanie klasy enterprise dla najbardziej wymagających klientów. Nasze
+								rozwiązania wspierają organizacje w każdym etapie rozwoju - od wdrożenia, przez codzienną pracę, aż po
+								transformację cyfrową.
+							</p>
+							<div className="flex gap-4 sm:gap-8">
+								<div>
+									<div className="text-3xl sm:text-4xl font-bold text-white">500+</div>
+									<div className="text-sm sm:text-base text-white/80">Klientów</div>
+								</div>
+								<div>
+									<div className="text-3xl sm:text-4xl font-bold text-white">60%</div>
+									<div className="text-sm sm:text-base text-white/80">Samorządów Śląskich</div>
+								</div>
 							</div>
-							<div>
-								<div className="text-5xl font-bold text-white">60%</div>
-								<div className="text-white/80">Samorządów Śląskich</div>
+						</div>
+
+						{/* Desktop version - full content */}
+						<div className="hidden lg:block">
+							<p className="text-lg text-white/90 leading-relaxed mb-6">
+								Od 35 lat dostarczamy oprogramowanie klasy enterprise dla najbardziej wymagających klientów. Nasze
+								rozwiązania wspierają organizacje w każdym etapie rozwoju - od wdrożenia, przez codzienną pracę, aż po
+								transformację cyfrową.
+							</p>
+							<p className="text-lg text-white/90 leading-relaxed">
+								Ponad 500 organizacji wybrało NEXORA jako swojego długoterminowego partnera technologicznego. 60%
+								samorządów województwa śląskiego zaufało naszemu systemowi NEXORA.CIVIC.
+							</p>
+							<div className="mt-8 flex gap-8">
+								<div>
+									<div className="text-5xl font-bold text-white">500+</div>
+									<div className="text-white/80">Klientów</div>
+								</div>
+								<div>
+									<div className="text-5xl font-bold text-white">60%</div>
+									<div className="text-white/80">Samorządów Śląskich</div>
+								</div>
 							</div>
 						</div>
 					</div>

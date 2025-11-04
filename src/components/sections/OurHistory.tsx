@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { LineIcon } from '@/components/ui/lineicon'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export const OurHistory = () => {
 	const sectionRef = useRef<HTMLElement>(null)
 	const horizontalRef = useRef<HTMLDivElement>(null)
+	const floatingElementsRef = useRef<HTMLDivElement>(null)
 
 	const milestones = [
 		{
@@ -73,27 +75,58 @@ export const OurHistory = () => {
 			}
 		})
 
-		const scrollTrigger = gsap.to(horizontal, {
-			x: -scrollWidth,
-			ease: 'none',
-			scrollTrigger: {
-				trigger: sectionRef.current,
-				start: 'top top',
-				end: () => `+=${scrollWidth}`,
-				scrub: 1,
-				pin: true,
-				anticipatePin: 1,
-				invalidateOnRefresh: true,
-			},
-		})
+		// Only enable horizontal scroll and pin on desktop
+		let scrollTrigger
+		if (window.innerWidth >= 1024) {
+			scrollTrigger = gsap.to(horizontal, {
+				x: -scrollWidth,
+				ease: 'none',
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: 'top top',
+					end: () => `+=${scrollWidth}`,
+					scrub: 1,
+					pin: true,
+					anticipatePin: 1,
+					invalidateOnRefresh: true,
+				},
+			})
+		}
+
+		// Floating elements animation
+		if (floatingElementsRef.current) {
+			const floatingElements = floatingElementsRef.current.children
+			Array.from(floatingElements).forEach((element, index) => {
+				gsap.to(element, {
+					y: -18,
+					duration: 3.2 + index * 0.5,
+					repeat: -1,
+					yoyo: true,
+					ease: 'power2.inOut',
+					delay: index * 0.4,
+				})
+			})
+		}
 
 		return () => {
-			scrollTrigger.kill()
+			if (scrollTrigger) {
+				scrollTrigger.kill()
+			}
 		}
 	}, [])
 
 	return (
-		<section id="about" ref={sectionRef} className="relative h-screen overflow-hidden bg-luxury-forest-green">
+		<section id="about" ref={sectionRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-luxury-forest-green via-luxury-forest-green to-luxury-forest-green/90 hidden lg:block">
+			{/* Floating Background Elements */}
+			<div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none z-0">
+				<div className="absolute top-24 left-16 w-28 h-28 border-3 border-white/10 rotate-45" />
+				<div className="absolute top-32 right-20 w-20 h-20 bg-white/5 rounded-full" />
+				<div className="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-white/10" />
+				<div className="absolute bottom-24 right-1/3 w-18 h-18 bg-white/5 rotate-12" />
+				<LineIcon name="calendar" className="absolute top-28 right-1/4 w-10 h-10 text-white/10" />
+				<LineIcon name="medal" className="absolute bottom-28 left-1/3 w-8 h-8 text-white/10" />
+			</div>
+			
 			<div className="absolute top-12 left-8 z-10">
 				<h2 className="text-5xl font-bold text-white mb-2">
 					Nasza <span className="text-white/90">Historia</span>
