@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Navbar } from '@/components/sections/Navbar'
+import { Footer } from '@/components/sections/Footer'
 import { Button } from '@/components/ui/button'
 import { LineIcon } from '@/components/ui/lineicon'
 import Lenis from '@studio-freight/lenis'
@@ -24,6 +25,8 @@ const Blog = () => {
 		})
 
 		lenisRef.current = lenis
+		// Make Lenis available globally for ScrollToTop component
+		;(window as any).lenis = lenis
 
 		function raf(time: number) {
 			lenis.raf(time)
@@ -74,6 +77,7 @@ const Blog = () => {
 
 		return () => {
 			lenis.destroy()
+			;(window as any).lenis = null
 		}
 	}, [])
 
@@ -229,7 +233,7 @@ const Blog = () => {
 										{getCategoryLabel(featuredArticle.category).toUpperCase()}
 									</div>
 
-									<h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight font-rubik">
+									<h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight font-sansation">
 										{featuredArticle.title}
 									</h1>
 
@@ -278,7 +282,7 @@ const Blog = () => {
 			{(activeFilter !== 'wszystkie' || !featuredArticle) && (
 				<section className="py-32 bg-gray-50 pt-32">
 					<div className="container mx-auto px-8 text-center">
-						<h1 className="text-6xl lg:text-8xl font-bold text-gray-900 mb-6 font-rubik">
+						<h1 className="text-6xl lg:text-8xl font-bold text-gray-900 mb-6 font-sansation">
 							Centrum <span className="text-luxury-forest-green">Wiedzy</span>
 						</h1>
 						<p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -333,7 +337,7 @@ const Blog = () => {
 										{getCategoryLabel(article.category).toUpperCase()}
 									</div>
 
-									<h3 className="text-xl font-bold text-gray-900 mb-3 font-rubik group-hover:text-luxury-forest-green transition-colors duration-300">
+									<h3 className="text-xl font-bold text-gray-900 mb-3 font-sansation group-hover:text-luxury-forest-green transition-colors duration-300">
 										{article.title}
 									</h3>
 
@@ -369,7 +373,7 @@ const Blog = () => {
 				</div>
 				
 				<div className="container mx-auto px-8 text-center relative z-10">
-					<h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 font-rubik">
+					<h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 font-sansation">
 						Wiedza, która daje <span className="text-white/80">przewagę</span>
 					</h2>
 					<p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
@@ -391,6 +395,7 @@ const Blog = () => {
 					<p className="text-white/70 text-sm mt-4">Bez spamu. Możesz się wypisać w każdej chwili.</p>
 				</div>
 			</section>
+			<Footer />
 		</main>
 	)
 }

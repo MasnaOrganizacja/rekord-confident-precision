@@ -77,7 +77,7 @@ export const DeepDiveERP = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Sticky Left Column */}
           <div ref={textRef} className="lg:h-screen flex flex-col justify-center">
-            <h2 className="text-6xl font-bold text-white mb-8">
+            <h2 className="text-6xl font-bold text-white mb-8 font-sansation">
               Rekord.<span className="text-white">ERP</span>
             </h2>
             <p className="text-xl text-white/90 leading-relaxed">
@@ -98,7 +98,7 @@ export const DeepDiveERP = () => {
                     className="w-full h-80 object-cover"
                   />
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-4">
+                <h3 className="text-3xl font-bold text-white mb-4 font-sansation">
                   {feature.title}
                 </h3>
                 <p className="text-lg text-white/80 leading-relaxed">

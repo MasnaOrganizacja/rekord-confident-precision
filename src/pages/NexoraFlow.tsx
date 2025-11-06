@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Navbar } from '@/components/sections/Navbar'
+import { Footer } from '@/components/sections/Footer'
 import { Button } from '@/components/ui/button'
 import { LineIcon } from '@/components/ui/lineicon'
 import Lenis from '@studio-freight/lenis'
@@ -32,6 +33,8 @@ const NexoraFlow = () => {
 		})
 
 		lenisRef.current = lenis
+		// Make Lenis available globally for ScrollToTop component
+		;(window as any).lenis = lenis
 
 		function raf(time: number) {
 			lenis.raf(time)
@@ -86,6 +89,7 @@ const NexoraFlow = () => {
 
 		return () => {
 			lenis.destroy()
+			;(window as any).lenis = null
 		}
 	}, [])
 
@@ -260,7 +264,7 @@ const NexoraFlow = () => {
 					<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 						{/* Left Content - 60% */}
 						<div className="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
-							<h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-[#F0F6FC] leading-tight font-rubik">
+							<h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-[#F0F6FC] leading-tight font-sansation">
 								<span className="hero-word inline-block">Twoje</span>{' '}
 								<span className="hero-word inline-block">Dane.</span> <br />
 								<span className="hero-word inline-block">Twoje</span>{' '}
@@ -323,7 +327,7 @@ const NexoraFlow = () => {
 			{/* Social Proof - Infinite Scroll */}
 			<section className="py-12 md:py-16 bg-[#0D1117] overflow-hidden">
 				<div className="mb-6 md:mb-8 px-4">
-					<h2 className="text-xl md:text-2xl font-bold text-[#F0F6FC] text-center">Zwiększamy wydajność w:</h2>
+					<h2 className="text-xl md:text-2xl font-bold text-[#F0F6FC] text-center font-sansation">Zwiększamy wydajność w:</h2>
 				</div>
 				<div className="relative">
 					<div className="flex animate-scroll space-x-12">
@@ -351,33 +355,42 @@ const NexoraFlow = () => {
 			{/* CFO Dilemma Section */}
 			<section className="py-16 md:py-32 bg-[#F0F6FC]">
 				<div className="container mx-auto px-4 md:px-8 text-center">
-					<h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#0D1117] mb-12 md:mb-16 font-rubik leading-tight">
+					<h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#0D1117] mb-12 md:mb-16 font-sansation leading-tight">
 						Nawigowanie w niepewności wymaga więcej niż instynktu.
 					</h2>
 
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
-						<div className="space-y-3 md:space-y-4">
-							<div className="text-4xl md:text-6xl font-bold text-[#34D399] counter" data-target="39">
-								0
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 max-w-6xl mx-auto">
+						<div className="space-y-2 sm:space-y-3 md:space-y-4 text-center">
+							<div className="flex items-baseline justify-center gap-0.5 sm:gap-1">
+								<div className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#34D399] counter" data-target="39">
+									0
+								</div>
+								<span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#34D399]">%</span>
 							</div>
-							<div className="text-base md:text-xl text-[#0D1117] font-medium">
-								% wskazuje na niepewność ekonomiczną
-							</div>
-						</div>
-						<div className="space-y-3 md:space-y-4">
-							<div className="text-4xl md:text-6xl font-bold text-[#34D399] counter" data-target="33">
-								0
-							</div>
-							<div className="text-base md:text-xl text-[#0D1117] font-medium">
-								% zmaga się z zarządzaniem łańcuchem dostaw
+							<div className="text-sm sm:text-base md:text-xl text-[#0D1117] font-medium px-2">
+								wskazuje na niepewność ekonomiczną
 							</div>
 						</div>
-						<div className="space-y-3 md:space-y-4">
-							<div className="text-4xl md:text-6xl font-bold text-[#34D399] counter" data-target="41">
-								0
+						<div className="space-y-2 sm:space-y-3 md:space-y-4 text-center">
+							<div className="flex items-baseline justify-center gap-0.5 sm:gap-1">
+								<div className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#34D399] counter" data-target="33">
+									0
+								</div>
+								<span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#34D399]">%</span>
 							</div>
-							<div className="text-base md:text-xl text-[#0D1117] font-medium">
-								% postrzega cyfryzację jako kluczową szansę
+							<div className="text-sm sm:text-base md:text-xl text-[#0D1117] font-medium px-2">
+								zmaga się z zarządzaniem łańcuchem dostaw
+							</div>
+						</div>
+						<div className="space-y-2 sm:space-y-3 md:space-y-4 text-center">
+							<div className="flex items-baseline justify-center gap-0.5 sm:gap-1">
+								<div className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#34D399] counter" data-target="41">
+									0
+								</div>
+								<span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#34D399]">%</span>
+							</div>
+							<div className="text-sm sm:text-base md:text-xl text-[#0D1117] font-medium px-2">
+								postrzega cyfryzację jako kluczową szansę
 							</div>
 						</div>
 					</div>
@@ -388,7 +401,7 @@ const NexoraFlow = () => {
 			<section className="py-32 bg-[#0D1117]">
 				<div className="container mx-auto px-8">
 					<div className="text-center mb-20">
-						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
+						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-sansation">
 							Twój Zintegrowany <span className="text-[#34D399]">Ekosystem</span>
 						</h2>
 						<p className="text-xl text-[#8B949E] max-w-3xl mx-auto">
@@ -429,7 +442,7 @@ const NexoraFlow = () => {
 										name={module.icon}
 										className={`w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300 ${module.textColor}`}
 									/>
-									<h3 className={`text-2xl font-bold mb-4 font-rubik ${module.textColor}`}>{module.title}</h3>
+									<h3 className={`text-2xl font-bold mb-4 font-sansation ${module.textColor}`}>{module.title}</h3>
 									<p
 										className={`${
 											module.textColor === 'text-[#F0F6FC]' ? 'text-[#8B949E]' : 'text-[#21262D]'
@@ -455,7 +468,7 @@ const NexoraFlow = () => {
 						<div className="lg:col-span-3 lg:sticky lg:top-32">
 							<div className="bg-[#0D1117] border-4 border-[#34D399] p-6 min-h-[600px]">
 								<div className="mb-6">
-									<h3 className="text-2xl font-bold text-[#F0F6FC] mb-2">Dashboard Produkcji</h3>
+									<h3 className="text-2xl font-bold text-[#F0F6FC] mb-2 font-sansation">Dashboard Produkcji</h3>
 									<p className="text-[#8B949E]">Monitorowanie KPI w czasie rzeczywistym</p>
 								</div>
 
@@ -503,7 +516,7 @@ const NexoraFlow = () => {
 						<div className="lg:col-span-2 space-y-10">
 							{kpiData.map((kpi, idx) => (
 								<div key={idx} className="space-y-3" onMouseEnter={() => setActiveKPI(idx)}>
-									<h3 className="text-2xl font-bold text-[#0D1117] font-rubik leading-tight">{kpi.title}</h3>
+									<h3 className="text-2xl font-bold text-[#0D1117] font-sansation leading-tight">{kpi.title}</h3>
 									<p className="text-base text-[#21262D] leading-relaxed">{kpi.description}</p>
 									<div className="text-base font-bold text-[#34D399] bg-[#34D399]/10 px-3 py-1 inline-block border-l-4 border-[#34D399]">
 										{kpi.improvement}
@@ -519,7 +532,7 @@ const NexoraFlow = () => {
 			<section className="py-32 bg-[#0D1117]">
 				<div className="container mx-auto px-8">
 					<div className="text-center mb-20">
-						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
+						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-sansation">
 							Silnik <span className="text-[#34D399]">ROI</span>
 						</h2>
 						<p className="text-xl text-[#8B949E] max-w-3xl mx-auto">Oblicz swoją przewagę konkurencyjną</p>
@@ -529,7 +542,7 @@ const NexoraFlow = () => {
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 							{/* Input Form */}
 							<div className="space-y-6">
-								<h3 className="text-2xl font-bold text-[#0D1117] mb-6">Wprowadź swoje dane:</h3>
+								<h3 className="text-2xl font-bold text-[#0D1117] mb-6 font-sansation">Wprowadź swoje dane:</h3>
 
 								<div>
 									<label className="block text-sm font-medium text-[#0D1117] mb-2">
@@ -577,7 +590,7 @@ const NexoraFlow = () => {
 
 							{/* Results */}
 							<div className="space-y-6">
-								<h3 className="text-2xl font-bold text-[#0D1117] mb-6">Prognozowane rezultaty:</h3>
+								<h3 className="text-2xl font-bold text-[#0D1117] mb-6 font-sansation">Prognozowane rezultaty:</h3>
 
 								<div className="space-y-4">
 									<div className="p-6 bg-[#34D399]/10 border-2 border-[#34D399]">
@@ -609,7 +622,7 @@ const NexoraFlow = () => {
 			{/* Implementation Roadmap - Horizontal Scroll */}
 			<section className="py-32 bg-[#F0F6FC]">
 				<div className="container mx-auto px-8 mb-20">
-					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-rubik">
+					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-sansation">
 						Mapa Drogowa <span className="text-[#34D399]">Wdrożenia</span>
 					</h2>
 					<p className="text-xl text-[#21262D] text-center max-w-3xl mx-auto">
@@ -660,7 +673,7 @@ const NexoraFlow = () => {
 											{(idx + 1).toString().padStart(2, '0')}
 										</div>
 										<LineIcon name={step.icon} className="w-16 h-16 text-[#34D399] mb-6" />
-										<h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-rubik">{step.title}</h3>
+										<h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-sansation">{step.title}</h3>
 										<p className="text-[#8B949E] leading-relaxed mb-6">{step.description}</p>
 									</div>
 									<div className="text-[#34D399] font-bold">Czas trwania: {step.duration}</div>
@@ -675,7 +688,7 @@ const NexoraFlow = () => {
 			<section className="py-32 bg-[#0D1117]">
 				<div className="container mx-auto px-8">
 					<div className="text-center mb-20">
-						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
+						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-sansation">
 							Historie <span className="text-[#34D399]">Sukcesu</span>
 						</h2>
 						<p className="text-xl text-[#8B949E] max-w-3xl mx-auto">Mierzalne rezultaty od liderów branży</p>
@@ -711,7 +724,7 @@ const NexoraFlow = () => {
 				</div>
 
 				<div className="container mx-auto px-8 text-center relative z-10">
-					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-rubik">
+					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-sansation">
 						Gotowy, by zbudować odporne przedsiębiorstwo?
 					</h2>
 					<p className="text-xl text-[#0D1117]/80 mb-12 max-w-3xl mx-auto">
@@ -734,6 +747,7 @@ const NexoraFlow = () => {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</main>
 	)
 }

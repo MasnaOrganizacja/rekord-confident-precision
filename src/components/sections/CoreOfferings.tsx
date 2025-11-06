@@ -45,11 +45,11 @@ export const CoreOfferings = () => {
 							transition: 'transform 0.1s ease-out',
 						}}>
 						<div className="bg-white border-4 border-luxury-forest-green p-6 md:p-12 h-full min-h-[500px] md:min-h-[600px] flex flex-col shadow-lg">
-							<div className="mb-4 md:mb-6 bg-luxury-forest-green/10 p-4 rounded-xl inline-block">
+							<div className="mb-4 md:mb-6">
 								<LineIcon name="database" className="w-16 h-16 md:w-20 md:h-20 text-luxury-forest-green" />
 							</div>
 
-							<h3 className="text-3xl md:text-5xl font-bold text-luxury-forest-green mb-4 md:mb-6">NEXORA.FLOW</h3>
+							<h3 className="text-3xl md:text-5xl font-bold text-luxury-forest-green mb-4 md:mb-6 font-sansation">NEXORA.FLOW</h3>
 
 							<p className="text-lg md:text-xl text-[hsl(var(--near-black))/80] mb-6 md:mb-8 leading-relaxed">
 								Zintegrowany system do zarządzania przedsiębiorstwem, który optymalizuje procesy, redukuje koszty i
@@ -58,14 +58,12 @@ export const CoreOfferings = () => {
 
 							<div className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-grow">
 								<div className="flex items-start gap-4 md:gap-6">
-									<div className="bg-luxury-forest-green/10 p-3 rounded-lg">
-										<LineIcon
-											name="money-location"
-											className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0"
-										/>
-									</div>
+									<LineIcon
+										name="money-location"
+										className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0 mt-2 ml-2"
+									/>
 									<div>
-										<h4 className="font-bold text-base md:text-lg text-gray-900">Finanse i Księgowość</h4>
+										<h4 className="font-bold text-base md:text-lg text-gray-900 font-sansation">Finanse i Księgowość</h4>
 										<p className="text-sm md:text-base text-[hsl(var(--near-black))/70]">
 											Pełna kontrola finansowa w czasie rzeczywistym
 										</p>
@@ -73,11 +71,9 @@ export const CoreOfferings = () => {
 								</div>
 
 								<div className="flex items-start gap-4 md:gap-6">
-									<div className="bg-luxury-forest-green/10 p-3 rounded-lg">
-										<LineIcon name="package" className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0" />
-									</div>
+									<LineIcon name="package" className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0 mt-2 ml-2" />
 									<div>
-										<h4 className="font-bold text-base md:text-lg text-gray-900">Logistyka i Magazyn</h4>
+										<h4 className="font-bold text-base md:text-lg text-gray-900 font-sansation">Logistyka i Magazyn</h4>
 										<p className="text-sm md:text-base text-[hsl(var(--near-black))/70]">
 											Zarządzanie łańcuchem dostaw i zapasami
 										</p>
@@ -85,11 +81,9 @@ export const CoreOfferings = () => {
 								</div>
 
 								<div className="flex items-start gap-4 md:gap-6">
-									<div className="bg-luxury-forest-green/10 p-3 rounded-lg">
-										<LineIcon name="cog" className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0" />
-									</div>
+									<LineIcon name="cog" className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0 mt-2 ml-2" />
 									<div>
-										<h4 className="font-bold text-base md:text-lg text-gray-900">Produkcja i Projekty</h4>
+										<h4 className="font-bold text-base md:text-lg text-gray-900 font-sansation">Produkcja i Projekty</h4>
 										<p className="text-sm md:text-base text-gray-600">Planowanie i kontrola procesów produkcyjnych</p>
 									</div>
 								</div>
@@ -115,11 +109,11 @@ export const CoreOfferings = () => {
 							transition: 'transform 0.1s ease-out',
 						}}>
 						<div className="bg-white border-4 border-luxury-forest-green p-6 md:p-12 h-full min-h-[500px] md:min-h-[600px] flex flex-col shadow-lg">
-							<div className="mb-4 md:mb-6 bg-luxury-forest-green/10 p-4 rounded-xl inline-block">
+							<div className="mb-4 md:mb-6">
 								<LineIcon name="apartment" className="w-16 h-16 md:w-20 md:h-20 text-luxury-forest-green" />
 							</div>
 
-							<h3 className="text-3xl md:text-5xl font-bold text-luxury-forest-green mb-4 md:mb-6">NEXORA.CIVIC</h3>
+							<h3 className="text-3xl md:text-5xl font-bold text-luxury-forest-green mb-4 md:mb-6 font-sansation">NEXORA.CIVIC</h3>
 
 							<p className="text-lg md:text-xl text-[hsl(var(--near-black))/80] mb-6 md:mb-8 leading-relaxed">
 								Kompleksowe rozwiązanie dla administracji publicznej, zapewniające zgodność z prawem, bezpieczeństwo
@@ -128,40 +122,34 @@ export const CoreOfferings = () => {
 
 							<div className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-grow">
 								<div className="flex items-start gap-4 md:gap-6">
-									<div className="bg-luxury-forest-green/10 p-3 rounded-lg">
-										<LineIcon
-											name="wallet"
-											className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0"
-										/>
-									</div>
+									<LineIcon
+										name="wallet"
+										className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0 mt-2 ml-2"
+									/>
 									<div>
-										<h4 className="font-bold text-base md:text-lg text-gray-900">Podatki i Opłaty Lokalne</h4>
+										<h4 className="font-bold text-base md:text-lg text-gray-900 font-sansation">Podatki i Opłaty Lokalne</h4>
 										<p className="text-sm md:text-base text-gray-600">Automatyzacja poboru i ewidencji należności</p>
 									</div>
 								</div>
 
 								<div className="flex items-start gap-4 md:gap-6">
-									<div className="bg-luxury-forest-green/10 p-3 rounded-lg">
-										<LineIcon
-											name="users"
-											className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0"
-										/>
-									</div>
+									<LineIcon
+										name="users"
+										className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0 mt-2 ml-2"
+									/>
 									<div>
-										<h4 className="font-bold text-base md:text-lg text-gray-900">E-urząd i Obsługa Obywatela</h4>
+										<h4 className="font-bold text-base md:text-lg text-gray-900 font-sansation">E-urząd i Obsługa Obywatela</h4>
 										<p className="text-sm md:text-base text-gray-600">Platforma cyfrowej komunikacji z mieszkańcami</p>
 									</div>
 								</div>
 
 								<div className="flex items-start gap-4 md:gap-6">
-									<div className="bg-luxury-forest-green/10 p-3 rounded-lg">
-										<LineIcon
-											name="stats-up"
-											className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0"
-										/>
-									</div>
+									<LineIcon
+										name="stats-up"
+										className="w-6 h-6 md:w-8 md:h-8 text-luxury-forest-green flex-shrink-0 mt-2 ml-2"
+									/>
 									<div>
-										<h4 className="font-bold text-base md:text-lg text-gray-900">Budżet i Finanse Publiczne</h4>
+										<h4 className="font-bold text-base md:text-lg text-gray-900 font-sansation">Budżet i Finanse Publiczne</h4>
 										<p className="text-sm md:text-base text-gray-600">Zarządzanie budżetem zgodne z przepisami</p>
 									</div>
 								</div>

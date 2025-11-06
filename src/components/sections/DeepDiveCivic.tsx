@@ -34,7 +34,7 @@ export const DeepDiveCivic = () => {
 	return (
 		<section className="py-32 bg-gray-50">
 			<div className="container mx-auto px-8">
-				<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
+				<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 text-center font-sansation">
 					<span className="text-luxury-forest-green">NEXORA.CIVIC</span> – Cyfrowa Administracja
 				</h2>
 				<p className="text-lg sm:text-xl text-gray-600 text-center mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
@@ -72,7 +72,7 @@ export const DeepDiveCivic = () => {
 					{/* Tab Content */}
 					<div className="bg-white border-4 border-luxury-forest-green p-12 shadow-lg">
 						<div className="animate-fade-in">
-							<h3 className="text-4xl font-bold text-gray-900 mb-6 flex items-center gap-4">
+							<h3 className="text-4xl font-bold text-gray-900 mb-6 flex items-center gap-4 font-sansation">
 								<LineIcon name={tabs[activeTab].icon} className="w-12 h-12 text-luxury-forest-green" />
 								{tabs[activeTab].title}
 							</h3>

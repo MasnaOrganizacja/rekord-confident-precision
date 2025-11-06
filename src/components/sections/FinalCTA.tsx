@@ -7,7 +7,7 @@ export const FinalCTA = () => {
 	return (
 		<section id="contact" className="py-32 bg-gray-50">
 			<div className="container mx-auto px-8">
-				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6 font-sansation">
 					Gotowy na <span className="text-luxury-forest-green">Transformację</span>?
 				</h2>
 				<p className="text-xl text-gray-600 text-center mb-20 max-w-3xl mx-auto">
@@ -17,7 +17,7 @@ export const FinalCTA = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 					{/* Contact Form */}
 					<div className="bg-white border-4 border-luxury-forest-green p-12 shadow-lg">
-						<h3 className="text-3xl font-bold text-gray-900 mb-8">Wyślij zapytanie</h3>
+						<h3 className="text-3xl font-bold text-gray-900 mb-8 font-sansation">Wyślij zapytanie</h3>
 						<form className="space-y-6">
 							<div>
 								<Input
@@ -62,7 +62,7 @@ export const FinalCTA = () => {
 					{/* Contact Info & Map */}
 					<div className="flex flex-col h-full">
 						<div className="bg-white border-4 border-luxury-forest-green p-8 shadow-lg flex-1 mb-8">
-							<h3 className="text-2xl font-bold text-gray-900 mb-6">Dane kontaktowe</h3>
+							<h3 className="text-2xl font-bold text-gray-900 mb-6 font-sansation">Dane kontaktowe</h3>
 							<div className="space-y-4">
 								<div className="flex items-start gap-4">
 									<LineIcon name="map-marker" className="w-6 h-6 text-luxury-forest-green flex-shrink-0 mt-1" />

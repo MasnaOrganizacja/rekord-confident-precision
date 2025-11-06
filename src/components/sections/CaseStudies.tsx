@@ -98,7 +98,7 @@ export const CaseStudies = () => {
   return (
     <section id="case-studies" className="py-32 bg-gray-50">
       <div className="container mx-auto px-8">
-        <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+        <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6 font-sansation">
           Studia <span className="text-luxury-forest-green">Przypadków</span>
         </h2>
         <p className="text-xl text-gray-600 text-center mb-12">
@@ -156,7 +156,7 @@ export const CaseStudies = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 font-sansation">
                 {caseStudy.client}
               </h3>
               <p className="text-xs sm:text-sm text-gray-500 mb-3 uppercase tracking-wider">

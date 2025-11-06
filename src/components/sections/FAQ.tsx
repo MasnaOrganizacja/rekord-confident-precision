@@ -116,7 +116,7 @@ export const FAQ = () => {
 	return (
 		<section className="py-32 bg-gray-50">
 			<div className="container mx-auto px-8">
-				<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-4 sm:mb-6 px-4">
+				<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-4 sm:mb-6 px-4 font-sansation">
 					Najczęściej Zadawane <span className="text-luxury-forest-green">Pytania</span>
 				</h2>
 				<p className="text-lg sm:text-xl text-gray-600 text-center mb-12 sm:mb-16 px-4">Odpowiedzi na kluczowe pytania naszych klientów</p>

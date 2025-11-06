@@ -39,10 +39,10 @@ export const VideoDivider = () => {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center z-10 px-4">
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold text-[hsl(var(--warm-white))] mb-4 sm:mb-6 leading-tight">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold text-[hsl(var(--warm-white))] mb-4 sm:mb-6 leading-tight font-sansation">
             Tworzymy oprogramowanie
           </h3>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold text-white leading-tight">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold text-white leading-tight font-sansation">
             dla ludzi. Z ludźmi.
           </h3>
         </div>

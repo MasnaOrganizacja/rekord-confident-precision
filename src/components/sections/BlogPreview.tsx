@@ -158,7 +158,7 @@ export const BlogPreview = () => {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 font-sansation">
             Centrum <span className="text-luxury-forest-green">Wiedzy</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
@@ -178,7 +178,7 @@ export const BlogPreview = () => {
 									{getCategoryLabel(featuredArticle.category).toUpperCase()}
 								</div>
 
-								<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
+								<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight font-sansation">
 									{featuredArticle.title}
 								</h3>
 
@@ -235,7 +235,7 @@ export const BlogPreview = () => {
 										{getCategoryLabel(article.category).toUpperCase()}
 									</div>
 
-									<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-luxury-forest-green transition-colors duration-300">
+									<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-luxury-forest-green transition-colors duration-300 font-sansation">
 										{article.title}
 									</h3>
 
@@ -278,7 +278,7 @@ export const BlogPreview = () => {
 										{getCategoryLabel(article.category).toUpperCase()}
 									</div>
 
-									<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-luxury-forest-green transition-colors duration-300">
+									<h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-luxury-forest-green transition-colors duration-300 font-sansation">
 										{article.title}
 									</h3>
 
@@ -328,7 +328,7 @@ export const BlogPreview = () => {
 				</div>
 				
 				<div className="relative z-10 max-w-4xl mx-auto">
-					<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6">
+					<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 font-sansation">
 						Wiedza, która daje <span className="text-white/80">przewagę</span>
 					</h3>
 					<p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">

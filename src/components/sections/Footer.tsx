@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { LineIcon } from '@/components/ui/lineicon'
 import { Button } from '@/components/ui/button'
 import { gsap } from 'gsap'
@@ -53,7 +54,7 @@ export const Footer = () => {
 			<div className="container mx-auto px-8 py-20 relative z-10">
 				{/* Hero Section */}
 				<div className="text-center mb-20">
-					<h2 className="text-6xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+					<h2 className="text-6xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent font-sansation">
 						NEXORA
 					</h2>
 					<p className="text-2xl text-white/90 mb-8 max-w-3xl mx-auto">Transformujemy przyszłość biznesu od 35 lat</p>
@@ -66,35 +67,37 @@ export const Footer = () => {
 					<div className="footer-card bg-white/10 backdrop-blur-sm border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 group">
 						<div className="flex items-center mb-6">
 							<LineIcon name="bulb" className="w-8 h-8 text-white mr-3 group-hover:scale-110 transition-transform" />
-							<h4 className="text-2xl font-bold">Produkty</h4>
+							<h4 className="text-2xl font-bold font-sansation">Produkty</h4>
 						</div>
 						<ul className="space-y-3">
 							<li>
-								<a
-									href="/nexora-flow"
+								<Link
+									to="/nexora-flow"
 									className="text-white/80 hover:text-white transition-colors flex items-center group/link">
 									<span className="w-2 h-2 bg-white/50 rounded-full mr-3 group-hover/link:bg-white transition-colors" />
 									NEXORA.FLOW
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a
-									href="/nexora-civic"
+								<Link
+									to="/nexora-civic"
 									className="text-white/80 hover:text-white transition-colors flex items-center group/link">
 									<span className="w-2 h-2 bg-white/50 rounded-full mr-3 group-hover/link:bg-white transition-colors" />
 									NEXORA.CIVIC
-								</a>
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/blog"
+									className="text-white/80 hover:text-white transition-colors flex items-center group/link">
+									<span className="w-2 h-2 bg-white/50 rounded-full mr-3 group-hover/link:bg-white transition-colors" />
+									Blog
+								</Link>
 							</li>
 							<li>
 								<a href="#" className="text-white/80 hover:text-white transition-colors flex items-center group/link">
 									<span className="w-2 h-2 bg-white/50 rounded-full mr-3 group-hover/link:bg-white transition-colors" />
-									Moduły dodatkowe
-								</a>
-							</li>
-							<li>
-								<a href="#" className="text-white/80 hover:text-white transition-colors flex items-center group/link">
-									<span className="w-2 h-2 bg-white/50 rounded-full mr-3 group-hover/link:bg-white transition-colors" />
-									API & SDK
+									Dokumentacja
 								</a>
 							</li>
 						</ul>
@@ -104,7 +107,7 @@ export const Footer = () => {
 					<div className="footer-card bg-white/10 backdrop-blur-sm border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 group">
 						<div className="flex items-center mb-6">
 							<LineIcon name="users" className="w-8 h-8 text-white mr-3 group-hover:scale-110 transition-transform" />
-							<h4 className="text-2xl font-bold">Usługi</h4>
+							<h4 className="text-2xl font-bold font-sansation">Usługi</h4>
 						</div>
 						<ul className="space-y-3">
 							<li>
@@ -141,7 +144,7 @@ export const Footer = () => {
 								name="envelope"
 								className="w-8 h-8 text-white mr-3 group-hover:scale-110 transition-transform"
 							/>
-							<h4 className="text-2xl font-bold">Kontakt</h4>
+							<h4 className="text-2xl font-bold font-sansation">Kontakt</h4>
 						</div>
 						<div className="space-y-4">
 							<div className="flex items-start gap-3">
@@ -167,7 +170,7 @@ export const Footer = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
 					{/* Social Media */}
 					<div className="text-center lg:text-left">
-						<h4 className="text-2xl font-bold mb-6">Śledź nas</h4>
+						<h4 className="text-2xl font-bold mb-6 font-sansation">Śledź nas</h4>
 						<div className="flex justify-center lg:justify-start space-x-4 mb-8">
 							<Button
 								variant="outline"
@@ -201,7 +204,7 @@ export const Footer = () => {
 
 					{/* Legal Links */}
 					<div className="text-center lg:text-right">
-						<h4 className="text-2xl font-bold mb-6">Dokumenty</h4>
+						<h4 className="text-2xl font-bold mb-6 font-sansation">Dokumenty</h4>
 						<div className="flex flex-wrap justify-center lg:justify-end gap-6">
 							<a href="#" className="text-white/80 hover:text-white transition-colors hover:underline">
 								Regulamin

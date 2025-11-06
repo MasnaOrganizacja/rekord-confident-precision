@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Navbar } from '@/components/sections/Navbar'
+import { Footer } from '@/components/sections/Footer'
 import { Button } from '@/components/ui/button'
 import { LineIcon } from '@/components/ui/lineicon'
 import Lenis from '@studio-freight/lenis'
@@ -27,6 +28,8 @@ const NexoraCivic = () => {
 		})
 
 		lenisRef.current = lenis
+		// Make Lenis available globally for ScrollToTop component
+		;(window as any).lenis = lenis
 
 		function raf(time: number) {
 			lenis.raf(time)
@@ -84,8 +87,8 @@ const NexoraCivic = () => {
 			}
 		}
 
-		// Security Architecture Sticky Scroll
-		if (securitySectionRef.current && securityTextRef.current) {
+		// Security Architecture Sticky Scroll - Desktop only
+		if (securitySectionRef.current && securityTextRef.current && window.innerWidth >= 1024) {
 			ScrollTrigger.create({
 				trigger: securitySectionRef.current,
 				start: 'top top',
@@ -97,6 +100,7 @@ const NexoraCivic = () => {
 
 		return () => {
 			lenis.destroy()
+			;(window as any).lenis = null
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 		}
 	}, [])
@@ -324,7 +328,7 @@ const NexoraCivic = () => {
 				</div>
 
 				<div className="container mx-auto px-8 relative z-10 text-center">
-					<h1 className="text-6xl lg:text-8xl font-bold text-[#F0F6FC] leading-tight font-rubik mb-8">
+					<h1 className="text-6xl lg:text-8xl font-bold text-[#F0F6FC] leading-tight font-sansation mb-8">
 						<div className="hero-word inline-block">Bezpieczeństwo.</div>
 						<br />
 						<div className="hero-word inline-block">Zgodność.</div>
@@ -358,7 +362,7 @@ const NexoraCivic = () => {
 			<section className="py-32 bg-[#F0F6FC]">
 				<div className="container mx-auto px-8">
 					<div className="text-center mb-20">
-						<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-rubik">
+						<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-sansation">
 							Mandat <span className="text-[#3B82F6]">KSeF</span>
 						</h2>
 						<p className="text-xl text-[#21262D] max-w-3xl mx-auto">
@@ -369,18 +373,9 @@ const NexoraCivic = () => {
 					<div ref={timelineRef} className="max-w-4xl mx-auto">
 						<div className="relative">
 							{/* Timeline line */}
-							<svg className="absolute left-8 top-0 h-full w-1" viewBox="0 0 2 400">
-								<line
-									className="timeline-path"
-									x1="1"
-									y1="0"
-									x2="1"
-									y2="400"
-									stroke="#3B82F6"
-									strokeWidth="4"
-									strokeDasharray="0 1000"
-								/>
-							</svg>
+							<div className="absolute left-8 top-8 bottom-0 w-1">
+								<div className="w-1 h-full bg-[#3B82F6]"></div>
+							</div>
 
 							<div className="space-y-16">
 								{ksfTimeline.map((item, idx) => (
@@ -393,14 +388,14 @@ const NexoraCivic = () => {
 										{/* Content */}
 										<div className="flex-1 bg-[#0D1117] border-4 border-[#3B82F6] p-8">
 											<div className="text-[#3B82F6] font-bold text-lg mb-2">{item.date}</div>
-											<h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-rubik">{item.title}</h3>
+											<h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-sansation">{item.title}</h3>
 											<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 												<div>
-													<h4 className="text-[#3B82F6] font-bold mb-2">Wyzwanie:</h4>
+													<h4 className="text-[#3B82F6] font-bold mb-2 font-sansation">Wyzwanie:</h4>
 													<p className="text-[#8B949E]">{item.challenge}</p>
 												</div>
 												<div>
-													<h4 className="text-[#3B82F6] font-bold mb-2">Rozwiązanie NEXORA.CIVIC:</h4>
+													<h4 className="text-[#3B82F6] font-bold mb-2 font-sansation">Rozwiązanie NEXORA.CIVIC:</h4>
 													<p className="text-[#8B949E]">{item.solution}</p>
 												</div>
 											</div>
@@ -416,7 +411,7 @@ const NexoraCivic = () => {
 			{/* Compliance Core - Diagonal Sections */}
 			<section className="py-32 bg-[#0D1117] overflow-hidden">
 				<div className="container mx-auto px-8 mb-20">
-					<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] text-center mb-6 font-rubik">
+					<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] text-center mb-6 font-sansation">
 						Rdzeń <span className="text-[#3B82F6]">Zgodności</span>
 					</h2>
 					<p className="text-xl text-[#8B949E] text-center max-w-3xl mx-auto">
@@ -442,7 +437,7 @@ const NexoraCivic = () => {
 									}`}>
 									<div className={idx % 2 === 1 ? 'lg:col-start-2' : ''}>
 										<LineIcon name={module.icon} className="w-20 h-20 text-[#3B82F6] mb-6" />
-										<h3 className="text-4xl font-bold text-[#F0F6FC] mb-6 font-rubik">{module.title}</h3>
+										<h3 className="text-4xl font-bold text-[#F0F6FC] mb-6 font-sansation">{module.title}</h3>
 										<p className="text-xl text-[#8B949E] mb-8 leading-relaxed">{module.description}</p>
 										<div className="grid grid-cols-2 gap-4">
 											{module.features.map((feature, featureIdx) => (
@@ -469,7 +464,7 @@ const NexoraCivic = () => {
 			{/* Key Modules - Horizontal Scroll */}
 			<section className="py-32 bg-[#F0F6FC] overflow-hidden">
 				<div className="container mx-auto px-8 mb-20">
-					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-rubik">
+					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-sansation">
 						Kluczowe <span className="text-[#3B82F6]">Moduły</span>
 					</h2>
 					<p className="text-xl text-[#21262D] text-center max-w-3xl mx-auto">
@@ -487,7 +482,7 @@ const NexoraCivic = () => {
 								<div className="flex flex-col h-full justify-between">
 									<div>
 										<LineIcon name={module.icon} className="w-16 h-16 text-[#3B82F6] mb-6" />
-										<h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-rubik">{module.title}</h3>
+										<h3 className="text-2xl font-bold text-[#F0F6FC] mb-4 font-sansation">{module.title}</h3>
 										<p className="text-[#8B949E] leading-relaxed mb-8">{module.description}</p>
 
 										<div className="space-y-3">
@@ -515,10 +510,10 @@ const NexoraCivic = () => {
 			<section ref={securitySectionRef} className="relative pt-32 pb-64  bg-[#0D1117]">
 				<div className="container mx-auto px-8">
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-						{/* Sticky Left Column */}
+						{/* Sticky Left Column - Desktop only */}
 						<div ref={securityTextRef} className="lg:h-screen flex flex-col justify-center">
 							<div className="text-center lg:text-left mb-16">
-								<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
+								<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-sansation">
 									Architektura <span className="text-[#3B82F6]">Bezpieczeństwa</span>
 								</h2>
 								<p className="text-xl text-[#8B949E] max-w-2xl">
@@ -558,7 +553,7 @@ const NexoraCivic = () => {
 							{securityLayers.map((layer, idx) => (
 								<div key={idx} className="space-y-6 min-h-[400px] flex flex-col justify-center py-8">
 									<div className="text-sm text-[#3B82F6] font-bold">WARSTWA {idx + 1}</div>
-									<h3 className="text-4xl font-bold text-[#F0F6FC] font-rubik">{layer.title}</h3>
+									<h3 className="text-4xl font-bold text-[#F0F6FC] font-sansation">{layer.title}</h3>
 									<p className="text-xl text-[#8B949E] leading-relaxed">{layer.description}</p>
 									<div className="w-16 h-1 bg-[#3B82F6]"></div>
 								</div>
@@ -571,33 +566,63 @@ const NexoraCivic = () => {
 			{/* Case Studies - Full-screen Slider */}
 			<section className="py-32 bg-[#F0F6FC]">
 				<div className="container mx-auto px-8 mb-20">
-					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-rubik">
+					<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] text-center mb-6 font-sansation">
 						Studia <span className="text-[#3B82F6]">Przypadków</span>
 					</h2>
 					<p className="text-xl text-[#21262D] text-center max-w-3xl mx-auto">Cyfrowa transformacja w polskich JST</p>
 				</div>
 
-				<div className="relative max-w-7xl mx-auto px-16">
-					{/* Left Arrow */}
-					<button
-						onClick={() =>
-							setCurrentTestimonial(currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1)
-						}
-						className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#3B82F6] hover:bg-[#3B82F6]/80 text-white p-4 border-2 border-[#3B82F6] transition-all duration-300 hover:scale-110">
-						<LineIcon name="arrow-left" className="w-6 h-6" />
-					</button>
-
-					{/* Right Arrow */}
-					<button
-						onClick={() =>
-							setCurrentTestimonial(currentTestimonial === testimonials.length - 1 ? 0 : currentTestimonial + 1)
-						}
-						className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#3B82F6] hover:bg-[#3B82F6]/80 text-white p-4 border-2 border-[#3B82F6] transition-all duration-300 hover:scale-110">
-						<LineIcon name="arrow-right" className="w-6 h-6" />
-					</button>
-
-					<div className="bg-[#0D1117] border-4 border-[#3B82F6] overflow-hidden">
-						<div className="grid grid-cols-1 lg:grid-cols-2 h-[600px]">
+				<div className="max-w-6xl mx-auto px-4 sm:px-8">
+					<div 
+						className="bg-[#0D1117] border-4 border-[#3B82F6] overflow-hidden cursor-grab active:cursor-grabbing select-none"
+						onMouseDown={(e) => {
+							const startX = e.clientX;
+							const handleMouseMove = (e: MouseEvent) => {
+								const deltaX = e.clientX - startX;
+								if (Math.abs(deltaX) > 50) {
+									if (deltaX > 0) {
+										// Swipe right - previous
+										setCurrentTestimonial(currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1);
+									} else {
+										// Swipe left - next
+										setCurrentTestimonial(currentTestimonial === testimonials.length - 1 ? 0 : currentTestimonial + 1);
+									}
+									document.removeEventListener('mousemove', handleMouseMove);
+									document.removeEventListener('mouseup', handleMouseUp);
+								}
+							};
+							const handleMouseUp = () => {
+								document.removeEventListener('mousemove', handleMouseMove);
+								document.removeEventListener('mouseup', handleMouseUp);
+							};
+							document.addEventListener('mousemove', handleMouseMove);
+							document.addEventListener('mouseup', handleMouseUp);
+						}}
+						onTouchStart={(e) => {
+							const startX = e.touches[0].clientX;
+							const handleTouchMove = (e: TouchEvent) => {
+								const deltaX = e.touches[0].clientX - startX;
+								if (Math.abs(deltaX) > 50) {
+									if (deltaX > 0) {
+										// Swipe right - previous
+										setCurrentTestimonial(currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1);
+									} else {
+										// Swipe left - next
+										setCurrentTestimonial(currentTestimonial === testimonials.length - 1 ? 0 : currentTestimonial + 1);
+									}
+									document.removeEventListener('touchmove', handleTouchMove);
+									document.removeEventListener('touchend', handleTouchEnd);
+								}
+							};
+							const handleTouchEnd = () => {
+								document.removeEventListener('touchmove', handleTouchMove);
+								document.removeEventListener('touchend', handleTouchEnd);
+							};
+							document.addEventListener('touchmove', handleTouchMove);
+							document.addEventListener('touchend', handleTouchEnd);
+						}}
+					>
+						<div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]">
 							{/* Image */}
 							<div className="relative h-full">
 								<img
@@ -609,24 +634,24 @@ const NexoraCivic = () => {
 							</div>
 
 							{/* Content */}
-							<div className="p-8 flex flex-col h-full">
-								{/* Top Section - Metric (Fixed Height) */}
-								<div className="h-24 flex items-start">
-									<div className="text-4xl font-bold text-[#3B82F6]">{testimonials[currentTestimonial].metric}</div>
+							<div className="p-4 sm:p-6 md:p-8 flex flex-col h-full">
+								{/* Top Section - Metric */}
+								<div className="mb-4 sm:mb-6">
+									<div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3B82F6] leading-tight">{testimonials[currentTestimonial].metric}</div>
 								</div>
 
-								{/* Middle Section - Quote (Fixed Height) */}
-								<div className="h-48 flex items-center py-4">
-									<p className="text-xl text-[#F0F6FC] leading-relaxed italic max-w-lg">
+								{/* Middle Section - Quote (Flexible Height) */}
+								<div className="flex-1 flex items-center py-2 sm:py-4">
+									<p className="text-base sm:text-lg md:text-xl text-[#F0F6FC] leading-relaxed italic">
 										"{testimonials[currentTestimonial].quote}"
 									</p>
 								</div>
 
-								{/* Bottom Section - Author Info (Fixed Height) */}
-								<div className="h-24 flex flex-col justify-end">
-									<p className="font-bold text-[#F0F6FC] text-lg">{testimonials[currentTestimonial].author}</p>
-									<p className="text-[#8B949E]">{testimonials[currentTestimonial].position}</p>
-									<p className="text-[#3B82F6] font-bold">{testimonials[currentTestimonial].city}</p>
+								{/* Bottom Section - Author Info */}
+								<div className="mt-4 sm:mt-6">
+									<p className="font-bold text-[#F0F6FC] text-base sm:text-lg">{testimonials[currentTestimonial].author}</p>
+									<p className="text-[#8B949E] text-sm sm:text-base">{testimonials[currentTestimonial].position}</p>
+									<p className="text-[#3B82F6] font-bold text-sm sm:text-base">{testimonials[currentTestimonial].city}</p>
 								</div>
 							</div>
 						</div>
@@ -644,6 +669,11 @@ const NexoraCivic = () => {
 							/>
 						))}
 					</div>
+					
+					{/* Swipe Instruction */}
+					<div className="text-center mt-4">
+						<p className="text-[#8B949E] text-sm">Przeciągnij lub kliknij kropki aby przełączać</p>
+					</div>
 				</div>
 			</section>
 
@@ -651,7 +681,7 @@ const NexoraCivic = () => {
 			<section className="py-32 bg-[#3B82F6]">
 				<div className="container mx-auto px-8">
 					<div className="text-center mb-20">
-						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-rubik">
+						<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] mb-6 font-sansation">
 							NEXORA.CIVIC w <span className="text-[#F0F6FC]/80">Liczbach</span>
 						</h2>
 					</div>
@@ -685,7 +715,7 @@ const NexoraCivic = () => {
 			<section className="py-32 bg-[#F0F6FC]">
 				<div className="container mx-auto px-8">
 					<div className="text-center mb-20">
-						<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-rubik">
+						<h2 className="text-5xl lg:text-7xl font-bold text-[#0D1117] mb-6 font-sansation">
 							Twoje Pytania, <span className="text-[#3B82F6]">Nasze Odpowiedzi</span>
 						</h2>
 					</div>
@@ -693,11 +723,11 @@ const NexoraCivic = () => {
 					<div className="max-w-4xl mx-auto">
 						{faqData.map((category, categoryIdx) => (
 							<div key={categoryIdx} className="mb-12">
-								<h3 className="text-2xl font-bold text-[#0D1117] mb-6 font-rubik">{category.category}</h3>
+								<h3 className="text-2xl font-bold text-[#0D1117] mb-6 font-sansation">{category.category}</h3>
 								<div className="space-y-4">
 									{category.questions.map((faq, faqIdx) => (
 										<div key={faqIdx} className="bg-[#0D1117] border-4 border-[#3B82F6] p-6">
-											<h4 className="text-lg font-bold text-[#F0F6FC] mb-3">{faq.q}</h4>
+											<h4 className="text-lg font-bold text-[#F0F6FC] mb-3 font-sansation">{faq.q}</h4>
 											<p className="text-[#8B949E] leading-relaxed">{faq.a}</p>
 										</div>
 									))}
@@ -714,7 +744,7 @@ const NexoraCivic = () => {
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 						{/* CTA Content */}
 						<div className="space-y-8">
-							<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] font-rubik">
+							<h2 className="text-5xl lg:text-7xl font-bold text-[#F0F6FC] font-sansation">
 								Zabezpiecz <span className="text-[#3B82F6]">Przyszłość</span> Swojego Samorządu
 							</h2>
 							<p className="text-xl text-[#8B949E] leading-relaxed">
@@ -740,7 +770,7 @@ const NexoraCivic = () => {
 
 						{/* Contact Info */}
 						<div className="bg-[#F0F6FC] border-4 border-[#3B82F6] p-8">
-							<h3 className="text-2xl font-bold text-[#0D1117] mb-6 font-rubik">Kontakt Bezpośredni</h3>
+							<h3 className="text-2xl font-bold text-[#0D1117] mb-6 font-sansation">Kontakt Bezpośredni</h3>
 
 							<div className="space-y-4">
 								<div className="flex items-start space-x-4">
@@ -775,6 +805,7 @@ const NexoraCivic = () => {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</main>
 	)
 }

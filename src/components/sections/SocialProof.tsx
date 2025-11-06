@@ -25,7 +25,7 @@ export const SocialProof = () => {
 	return (
 		<section className="py-24 bg-[hsl(var(--warm-white))] overflow-hidden">
 			<div className="container mx-auto px-8 mb-12">
-				<h2 className="text-4xl lg:text-5xl font-bold text-gray-900 text-center">
+				<h2 className="text-4xl lg:text-5xl font-bold text-gray-900 text-center font-sansation">
 					Zaufało nam ponad <span className="text-luxury-forest-green">500 organizacji</span>, w tym:
 				</h2>
 			</div>

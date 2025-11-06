@@ -163,7 +163,7 @@ export const Testimonials = () => {
 			</div>
 			
 			<div className="container mx-auto px-4 md:px-8 relative z-10">
-				<h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-12 md:mb-20">
+				<h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-12 md:mb-20 font-sansation">
 					Co mówią nasi <span className="text-white/90">Klienci</span>
 				</h2>
 

@@ -72,7 +72,7 @@ export const VisualDivider = ({ imageUrl }: VisualDividerProps) => {
         <div className="w-96 h-96 border-4 border-[hsl(var(--electric-cyan))/30] rotate-45" />
       </div>
       <div ref={layer3Ref} className="parallax-layer absolute inset-0 flex items-center justify-center">
-        <h3 className="text-6xl font-bold text-[hsl(var(--warm-white))] text-center">
+        <h3 className="text-6xl font-bold text-[hsl(var(--warm-white))] text-center font-sansation">
           Dane. Technologia. Transformacja.
         </h3>
       </div>

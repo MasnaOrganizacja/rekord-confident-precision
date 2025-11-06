@@ -82,7 +82,7 @@ export const ValuesCSR = () => {
 	return (
 		<section ref={sectionRef} className="py-32 bg-white">
 			<div className="container mx-auto px-8">
-				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6 font-sansation">
 					Nasze <span className="text-luxury-forest-green">Wartości</span>
 				</h2>
 				<p className="text-xl text-gray-600 text-center mb-20 max-w-3xl mx-auto">
@@ -99,7 +99,7 @@ export const ValuesCSR = () => {
 									name={value.icon}
 									className="w-16 h-16 text-luxury-forest-green mb-6 group-hover:scale-110 transition-transform duration-300"
 								/>
-								<h3 className="text-3xl font-bold text-gray-900 mb-4">{value.title}</h3>
+								<h3 className="text-3xl font-bold text-gray-900 mb-4 font-sansation">{value.title}</h3>
 								<p className="text-lg text-gray-600 leading-relaxed">{value.description}</p>
 							</div>
 						)
@@ -119,7 +119,7 @@ export const ValuesCSR = () => {
 					</div>
 					
 					<div className="relative z-10">
-						<h3 className="text-4xl font-bold text-white mb-6">Więcej niż oprogramowanie</h3>
+						<h3 className="text-4xl font-bold text-white mb-6 font-sansation">Więcej niż oprogramowanie</h3>
 						<p className="text-xl text-white/90 leading-relaxed">
 							Od lat wspieramy edukację informatyczną w szkołach, sponsorujemy lokalne inicjatywy sportowe i angażujemy
 							się w projekty pro bono dla organizacji non-profit. W 2023 roku przekazaliśmy bezpłatne licencje

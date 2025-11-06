@@ -32,6 +32,8 @@ const Index = () => {
 		})
 
 		lenisRef.current = lenis
+		// Make Lenis available globally for ScrollToTop component
+		;(window as any).lenis = lenis
 
 		function raf(time: number) {
 			lenis.raf(time)
@@ -49,6 +51,7 @@ const Index = () => {
 
 		return () => {
 			lenis.destroy()
+			;(window as any).lenis = null
 		}
 	}, [])
 

@@ -115,7 +115,7 @@ export const Hero = () => {
 								NEXORA
 							</span>
 						</div>
-						<h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-gray-900 leading-tight">
+						<h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-gray-900 leading-tight font-sansation">
 							<span className="hero-word inline-block">35</span> <span className="hero-word inline-block">Lat</span>{' '}
 							<span className="hero-word inline-block">Innowacji.</span> <br />
 							<span className="hero-word inline-block text-luxury-forest-green">Oprogramowanie,</span>{' '}

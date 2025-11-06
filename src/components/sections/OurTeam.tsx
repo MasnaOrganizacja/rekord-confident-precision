@@ -82,7 +82,7 @@ export const OurTeam = () => {
 	return (
 		<section id="team" className="py-32 bg-white">
 			<div className="container mx-auto px-8">
-				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6">
+				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 text-center mb-6 font-sansation">
 					Nasz <span className="text-luxury-forest-green">Zespół</span>
 				</h2>
 				<p className="text-xl text-gray-600 text-center mb-20">Eksperci, którzy tworzą przyszłość oprogramowania</p>
@@ -97,7 +97,7 @@ export const OurTeam = () => {
 									className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
 								/>
 							</div>
-							<h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+							<h3 className="text-xl font-bold text-gray-900 mb-1 font-sansation">{member.name}</h3>
 							<p className="text-luxury-forest-green">{member.role}</p>
 						</div>
 					))}
@@ -124,7 +124,7 @@ export const OurTeam = () => {
 								className="w-40 h-40 object-cover border-4 border-luxury-forest-green"
 							/>
 							<div>
-								<h3 className="text-3xl font-bold text-gray-900 mb-2">{team[selectedMember].name}</h3>
+								<h3 className="text-3xl font-bold text-gray-900 mb-2 font-sansation">{team[selectedMember].name}</h3>
 								<p className="text-xl text-luxury-forest-green font-bold">{team[selectedMember].role}</p>
 							</div>
 						</div>

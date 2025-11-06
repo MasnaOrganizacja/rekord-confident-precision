@@ -103,7 +103,7 @@ export const DeepDiveFlow = () => {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 					{/* Sticky Left Column */}
 					<div ref={textRef} className="lg:h-screen flex flex-col justify-center">
-						<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8">
+						<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 font-sansation">
 							NEXORA.<span className="text-white">FLOW</span>
 						</h2>
 						<p className="text-lg sm:text-xl text-white/90 leading-relaxed">
@@ -119,7 +119,7 @@ export const DeepDiveFlow = () => {
 								<div className="overflow-hidden mb-6">
 									<img src={feature.image} alt={feature.title} className="w-full h-80 object-cover" />
 								</div>
-								<h3 className="text-3xl font-bold text-white mb-4">{feature.title}</h3>
+								<h3 className="text-3xl font-bold text-white mb-4 font-sansation">{feature.title}</h3>
 								<p className="text-lg text-white/80 leading-relaxed">{feature.description}</p>
 							</div>
 						))}

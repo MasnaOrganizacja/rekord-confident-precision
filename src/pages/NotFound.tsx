@@ -2,6 +2,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { LineIcon } from '@/components/ui/lineicon'
+import { Footer } from '@/components/sections/Footer'
 import { gsap } from 'gsap'
 import Lenis from '@studio-freight/lenis'
 
@@ -24,6 +25,8 @@ const NotFound = () => {
 		})
 
 		lenisRef.current = lenis
+		// Make Lenis available globally for ScrollToTop component
+		;(window as any).lenis = lenis
 
 		function raf(time: number) {
 			lenis.raf(time)
@@ -121,6 +124,7 @@ const NotFound = () => {
 		return () => {
 			clearInterval(glitchInterval)
 			lenis.destroy()
+			;(window as any).lenis = null
 		}
 	}, [location.pathname])
 
@@ -181,7 +185,7 @@ const NotFound = () => {
 
           {/* Error Title */}
           <div className="space-y-6">
-            <h1 className="error-title text-4xl lg:text-6xl font-bold text-gray-900">
+            <h1 className="error-title text-4xl lg:text-6xl font-bold text-gray-900 font-sansation">
               Strona <span className="text-luxury-forest-green">nie istnieje</span>
             </h1>
             
@@ -222,7 +226,7 @@ const NotFound = () => {
 
 					{/* Quick Links */}
 					<div className="helpful-links">
-						<h3 className="text-2xl font-bold text-gray-900 mb-8">Może szukasz czegoś z tego?</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-8 font-sansation">Może szukasz czegoś z tego?</h3>
 
 						<div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
 							{quickLinks.map((link, idx) => {
@@ -257,7 +261,7 @@ const NotFound = () => {
 						</div>
 						
 						<div className="relative z-10">
-							<h4 className="text-2xl font-bold text-white mb-4">
+							<h4 className="text-2xl font-bold text-white mb-4 font-sansation">
 								Nadal nie możesz znaleźć tego, czego szukasz?
 							</h4>
 						<p className="text-white/90 mb-6">
@@ -279,6 +283,7 @@ const NotFound = () => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	)
 }

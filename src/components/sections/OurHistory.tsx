@@ -128,7 +128,7 @@ export const OurHistory = () => {
 			</div>
 			
 			<div className="absolute top-12 left-8 z-10">
-				<h2 className="text-5xl font-bold text-white mb-2">
+				<h2 className="text-5xl font-bold text-white mb-2 font-sansation">
 					Nasza <span className="text-white/90">Historia</span>
 				</h2>
 				<p className="text-xl text-white/80">35 lat budowania przyszłości</p>
@@ -141,7 +141,7 @@ export const OurHistory = () => {
 						className="flex-shrink-0 w-[500px] h-[400px] border-4 border-white bg-white p-10 flex flex-col justify-between hover:scale-105 transition-transform duration-300 shadow-lg">
 						<div>
 							<div className="text-8xl font-bold text-luxury-forest-green mb-4">{milestone.year}</div>
-							<h3 className="text-3xl font-bold text-gray-900 mb-4">{milestone.title}</h3>
+							<h3 className="text-3xl font-bold text-gray-900 mb-4 font-sansation">{milestone.title}</h3>
 							<p className="text-lg text-gray-600 leading-relaxed">{milestone.description}</p>
 						</div>
 						<div className="w-16 h-1 bg-luxury-forest-green" />

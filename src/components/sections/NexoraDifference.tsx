@@ -36,7 +36,7 @@ export const NexoraDifference = () => {
 	return (
 		<section ref={sectionRef} className="py-32 bg-white">
 			<div className="container mx-auto px-8">
-				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-4 text-center">
+				<h2 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-4 text-center font-sansation">
 					Dlaczego <span className="text-luxury-forest-green">NEXORA</span>?
 				</h2>
 				<p className="text-xl text-gray-600 text-center mb-20 max-w-3xl mx-auto">
@@ -51,7 +51,7 @@ export const NexoraDifference = () => {
 							name="medal"
 							className="w-12 h-12 sm:w-16 sm:h-16 text-white mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Doświadczenie i Stabilność</h3>
+						<h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 font-sansation">Doświadczenie i Stabilność</h3>
 						
 						{/* Mobile version - only first paragraph */}
 						<div className="lg:hidden">
@@ -102,7 +102,7 @@ export const NexoraDifference = () => {
 							name="map-marker"
 							className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-2xl font-bold text-gray-900 mb-4">Polska Inżynieria</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-4 font-sansation">Polska Inżynieria</h3>
 						<p className="text-gray-600 leading-relaxed">
 							Znamy polskie przepisy, standardy i specyfikę rynku jak nikt inny. Nasze rozwiązania są w pełni
 							dostosowane do wymogów prawnych i oczekiwań lokalnych klientów.
@@ -115,7 +115,7 @@ export const NexoraDifference = () => {
 							name="headphone"
 							className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-2xl font-bold text-gray-900 mb-4">Wsparcie Ekspertów</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-4 font-sansation">Wsparcie Ekspertów</h3>
 						<p className="text-gray-600 leading-relaxed">
 							Dedykowany zespół specjalistów, kompleksowe szkolenia i ciągłe wsparcie techniczne zapewniają spokój i
 							maksymalną efektywność wdrożenia.
@@ -128,7 +128,7 @@ export const NexoraDifference = () => {
 							name="bolt"
 							className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-2xl font-bold text-gray-900 mb-4">Ciągła Innowacja</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-4 font-sansation">Ciągła Innowacja</h3>
 						<p className="text-gray-700 leading-relaxed">
 							Inwestujemy w rozwój produktów i nowe technologie, aby nasze systemy zawsze wyprzedzały rynek.
 						</p>
@@ -140,7 +140,7 @@ export const NexoraDifference = () => {
 							name="shield"
 							className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-2xl font-bold text-gray-900 mb-4">Bezpieczeństwo Danych</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-4 font-sansation">Bezpieczeństwo Danych</h3>
 						<p className="text-gray-600 leading-relaxed">
 							Najwyższe standardy bezpieczeństwa, szyfrowanie danych i zgodność z RODO. Twoje dane są chronione na
 							każdym etapie przetwarzania.
@@ -153,7 +153,7 @@ export const NexoraDifference = () => {
 							name="timer"
 							className="w-12 h-12 text-luxury-forest-green mb-4 group-hover:scale-110 transition-transform duration-300"
 						/>
-						<h3 className="text-2xl font-bold text-gray-900 mb-4">Szybkie Wdrożenie</h3>
+						<h3 className="text-2xl font-bold text-gray-900 mb-4 font-sansation">Szybkie Wdrożenie</h3>
 						<p className="text-gray-600 leading-relaxed">
 							Sprawdzone metodologie wdrożenia pozwalają na uruchomienie systemu w rekordowym czasie. Minimalizujemy
 							przestoje i maksymalizujemy efektywność.

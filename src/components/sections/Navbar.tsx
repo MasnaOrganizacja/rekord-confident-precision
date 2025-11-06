@@ -11,10 +11,7 @@ export const Navbar = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
 
-	// Scroll to top when route changes
-	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: 'smooth' })
-	}, [location.pathname])
+	// ScrollToTop component handles route changes
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -53,11 +50,8 @@ export const Navbar = () => {
 
 	const handleNavigation = (item: (typeof navItems)[0]) => {
 		if (item.type === 'route') {
-			// Always scroll to top when navigating to any route
+			// Navigate to route - ScrollToTop component will handle scrolling
 			navigate(item.href)
-			setTimeout(() => {
-				window.scrollTo({ top: 0, behavior: 'smooth' })
-			}, 100)
 		} else {
 			// If we're not on the home page, go to home first
 			if (location.pathname !== '/') {
@@ -77,7 +71,7 @@ export const Navbar = () => {
 			// If on home page, scroll to top
 			window.scrollTo({ top: 0, behavior: 'smooth' })
 		} else {
-			// If on other page, navigate to home
+			// If on other page, navigate to home - ScrollToTop will handle scrolling
 			navigate('/')
 		}
 	}
